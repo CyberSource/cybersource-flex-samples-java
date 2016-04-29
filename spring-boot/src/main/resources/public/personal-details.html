@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js"> <!--<![endif]-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dish - Fine Cookery Products</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <!-- Stylesheet -->
+    <link href="css/style.css" rel="stylesheet" />
+
+    <!-- Google Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Work+Sans:200,400' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,300' rel='stylesheet' type='text/css'>
+
+</head>
+<body>
+  <div class="container">
+    <header class="group">
+      <div class="half">
+        <a href="index.html"><h1 class="logo">Dish - Fine Cookery Products</h1></a>
+      </div>
+
+      <nav class="half">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li class="last"><a href="cart.html">Shopping Cart</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="breadcrumb group">
+      <ul>
+        <li><a href="cart.html">Shopping Cart</a></li>
+        <li class="active">Personal Details</li>
+      </ul>
+    </section>
+
+    <section class="content group">
+      <div class="eight">
+
+        <form accept-charset="UTF-8" action="/billing" autocomplete="off" method="post" novalidate="novalidate">
+
+          <fieldset class="border-bottom payment-method">
+            <h3 class="pb-30 pt-30">Payment Method</h3>
+              <div class="group">
+                <div class="three">
+                    <input type="radio" class="payment-method" name="payment-method" id="credit-card" checked>
+                    <label class="u-center-table" for="credit-card">
+                    <img src="images/cards.png" alt="Checkout with Credit Card" title="Checkout with Credit Card">
+                  </label>
+                </div>
+                <div class="three">
+                    <input type="radio" class="payment-method" name="payment-method" id="paypal">
+                    <label for="paypal">
+                    <img src="images/paypal-button.png" alt="Checkout with paypal" title="Checkout with paypal">
+                  </label>
+                </div>
+                <div class="three">
+                    <input type="radio" class="payment-method" name="payment-method" id="visa">
+                    <label for="visa">
+                    <img src="images/visa-checkout.png" alt="Checkout with VISA Checkout" title="Checkout with VISA Checkout">
+                  </label>
+                </div>
+                <div class="three">
+                    <input type="radio" class="payment-method" name="payment-method" id="echeck">
+                    <label for="echeck">
+                    <img src="images/echeck-button.png" alt="Checkout with eCheck" title="Checkout with eCheck">
+                  </label>
+                </div>
+              </div>
+          </fieldset>
+
+
+          <fieldset id="billing-address" class="border-bottom">
+            <h3 class=" pb-30 pt-30">Billing Address</h3>
+              <ul>
+                  <li>
+
+                    <div class="seven no-margin">
+                      <label>Your Name*</label>
+                      <input placeholder="enter your name" type="text" />
+                    </div>
+                  </li>
+
+                  <li>
+
+                    <div class="seven no-margin">
+                      <label>Email *</label>
+
+                      <input placeholder="enter your email" type="text" />
+                    </div>
+                  </li>
+
+                  <li>
+
+                    <div class="seven no-margin">
+                      <label>House Number / Building Name *</label>
+
+                      <input placeholder="enter your house number / building name" type="text" />
+                    </div>
+                  </li>
+
+                  <li>
+
+                    <div class="seven no-margin">
+                      <label>Street *</label>
+
+                      <input placeholder="enter your street name" type="text" />
+                    </div>
+                  </li>
+
+                  <li>
+
+                    <div class="seven no-margin">
+                      <label>City / Town *</label>
+
+                      <input placeholder="enter your city / town" type="text" />
+                    </div>
+                  </li>
+
+                  <li>
+
+                    <div class="seven no-margin">
+                      <label>State / County *</label>
+
+                      <input placeholder="enter your state / county" type="text" />
+                    </div>
+                  </li>
+
+                  <li>
+
+                    <div class="seven no-margin">
+                      <label>Zip / Postcode *</label>
+
+                      <input placeholder="enter your zip / postcode" type="text" />
+                    </div>
+                  </li>
+
+                  <li>
+
+                    <div class="seven no-margin">
+                      <label>Use Billing as Shipping</label>
+
+                      <input type="checkbox" name="shipping" value="yes" checked>
+                    </div>
+                  </li>
+
+              </ul>
+          </fieldset>
+
+          <fieldset id="card-details">
+            <h3 class="pb-30 pt-30">Card Details</h3>
+              <ul>
+                  <li>
+                    <div class="seven no-margin">
+                      <label>Card number *</label>
+                      <input placeholder="0000 0000 0000 0000" type="text" />
+                    </div>
+                  </li>
+
+                  <li>
+                    <div class="seven no-margin">
+                      <label>3 digit CVC number *</label>
+                      <input placeholder="Three digits from the reverse of your card" type="password" />
+                    </div>
+                  </li>
+
+                  <li>
+                    <div class="seven no-margin">
+                      <label>Expiry date *</label>
+                      <input placeholder="00/00" type="text" />
+                    </div>
+                  </li>
+
+              </ul>
+          </fieldset>
+        </form>
+
+        </div><!-- /nine -->
+
+
+        <div class="four">
+          <section class="order-sidebar group float-sidebar four">
+            <h4>Your Items</h4>
+            <div class="group">
+              <p class="left">Salad Tosser x 3</p>
+              <p class="right">$15.00</p>
+              <p class="left">Wok Turner</p>
+              <p class="right">$5.00</p>
+            </div><!-- /group -->
+            <hr>
+            <div class="group">
+              <p class="left"><strong>Order Total</strong></p>
+              <p class="right"><strong>$20.00</strong></p>
+            </div>
+            <div class="center action">
+              <a class="reverse center full-width" href="confirm-order.html">Confirm Details</a>
+              <p>You will confirm your order on the next screen</p>
+            </div>
+
+          </section>
+        </div><!-- /four -->
+
+    </section>
+
+  </div><!-- /container -->
+
+  <section class="order-total group">
+    <p class="center"><strong>Order Total</strong></p>
+    <p class="large price center">$20.00</p>
+  </section>
+
+  <footer class="group">
+    <a class="reverse center" href="confirm-order.html">Confirm Personal Details</a>
+    <p class="center">You will confirm your order on the next screen</p>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+    <script>
+      $(document).ready(function() {
+         $('input.payment-method').click(function() {
+             if($(this).attr('id') == 'credit-card') {
+                  $('#card-details, #billing-address').show();
+             }
+
+             else {
+                  $('#card-details, #billing-address').hide();
+             }
+         });
+      });
+    </script>
+  </footer>
+
+</body>
+</html>
