@@ -1,3 +1,6 @@
+/*
+ * Copyright 2016 CyberSource Corporation. All rights reserved.
+ */
 package com.cybersource.flex.samples;
 
 import java.util.LinkedHashMap;
