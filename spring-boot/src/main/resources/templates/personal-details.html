@@ -22,6 +22,14 @@
     <!-- Google Fonts -->
     <link href='https://fonts.googleapis.com/css?family=Work+Sans:200,400' rel='stylesheet' type='text/css' />
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,300' rel='stylesheet' type='text/css' />
+    
+    <script th:inline="javascript">
+      /*<![CDATA[*/
+      var keystore = JSON.parse([[${jwk}]]); ;
+      console.log("Injected JSON containing JWK: ");
+      console.log(keystore);
+      /*]]>*/
+    </script>
 </head>
 
 <body>
