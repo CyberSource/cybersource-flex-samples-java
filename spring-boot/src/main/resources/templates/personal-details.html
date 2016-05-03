@@ -25,7 +25,7 @@
     
     <script th:inline="javascript">
       /*<![CDATA[*/
-      var keystore = JSON.parse([[${jwk}]]); ;
+      window.keystore = JSON.parse([[${jwk}]]); ;
       console.log("Injected JSON containing JWK: ");
       console.log(keystore);
       /*]]>*/
@@ -58,7 +58,7 @@
     <section class="content group">
       <div class="eight">
 
-        <form accept-charset="UTF-8" action="/billing" autocomplete="off" method="post" novalidate="novalidate">
+        <form id="flex-form" accept-charset="UTF-8" action="/confirm-order.html" autocomplete="off" method="post" novalidate="novalidate">
 
           <fieldset class="border-bottom payment-method">
             <h3 class="pb-30 pt-30">Payment Method</h3>
@@ -162,7 +162,7 @@
                   <li>
                     <div class="seven no-margin">
                       <label>Card number *</label>
-                      <input placeholder="0000 0000 0000 0000" type="text" />
+                      <input id="pan" placeholder="0000 0000 0000 0000" type="text" maxlength="16" />
                     </div>
                   </li>
 
@@ -202,7 +202,7 @@
               <p class="right"><strong>$20.00</strong></p>
             </div>
             <div class="center action">
-              <a class="reverse center full-width" href="confirm-order.html">Confirm Details</a>
+              <button id="sidebar-confirm-btn" type="button" class="reverse center full-width">Confirm Details</button>
               <p>You will confirm your order on the next screen</p>
             </div>
 
@@ -219,25 +219,10 @@
   </section>
 
   <footer class="group">
-    <a class="reverse center" href="confirm-order.html">Confirm Personal Details</a>
-    <p class="center">You will confirm your order on the next screen</p>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-
-    <script>
-      $(document).ready(function() {
-         $('input.payment-method').click(function() {
-             if($(this).attr('id') == 'credit-card') {
-                  $('#card-details, #billing-address').show();
-             }
-
-             else {
-                  $('#card-details, #billing-address').hide();
-             }
-         });
-      });
-    </script>
+    <button id="footer-confirm-btn" type="button" class="reverse center" >Confirm Personal Details</button>
+    <p class="center">You will confirm your order on the next screen</p>    
   </footer>
-
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="/scripts/flex.js"></script>
 </body>
 </html>
