@@ -6,7 +6,7 @@
 <!--[if IE 8]>
 <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!-->
-<html class="no-js"> <!--<![endif]-->
+<html class="no-js" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"> <!--<![endif]-->
 
 <head>
     <meta charset="UTF-8" />
@@ -56,69 +56,72 @@
         <ul class="details border-bottom pb-30 group">
           <li class="group">
             <div class="three no-margin ">Your Name:</div>
-            <div class="nine no-margin">Jane Bloggs</div>
+            <div class="nine no-margin" th:text="${session.customerName}">Jane Bloggs</div>
           </li>
 
           <li class="group">
             <div class="three no-margin">Email:</div>
-            <div class="nine no-margin">j.bloggs@email.com</div>
+            <div class="nine no-margin" th:text="${session.customerEmail}">j.bloggs@email.com</div>
           </li>
 
           <li class="group">
             <div class="three no-margin">House Number / Building Name:</div>
-            <div class="nine no-margin">1</div>
+            <div class="nine no-margin" th:text="${session.addressHouseNo}">1</div>
           </li>
 
           <li class="group">
             <div class="three no-margin">Street:</div>
-            <div class="nine no-margin">Sesame St.</div>
+            <div class="nine no-margin" th:text="${session.addressStreet}">Sesame St.</div>
           </li>
 
           <li class="group">
             <div class="three no-margin">City / Town:</div>
-            <div class="nine no-margin">Elmo City</div>
+            <div class="nine no-margin" th:text="${session.addressCity}">Elmo City</div>
           </li>
 
           <li class="group">
             <div class="three no-margin">State / County:</div>
-            <div class="nine no-margin">New York</div>
+            <div class="nine no-margin" th:text="${session.addressState}">New York</div>
           </li>
           <li class="group">
             <div class="three no-margin">Zip / Postcode:</div>
-            <div class="nine no-margin">12345</div>
+            <div class="nine no-margin" th:text="${session.addressZip}">12345</div>
           </li>
-
         </ul>
 
-        <h3 class="pb-30 pt-30">Shipping Address:</h3>
+        <!-- <h3 class="pb-30 pt-30">Shipping Address:</h3>
         <ul class="details border-bottom pb-30 group">
           <li>
             <div class="three no-margin">Shipping Address</div>
             <div class="nine no-margin">Same as Billing Address</div>
           </li>
-
-        </ul>
+        </ul> -->
 
         <h3 class="pb-30 pt-30">Card Details:</h3>
         <ul class="details border-bottom pb-30 group">
-          <li>
+          <li class="group">
             <div class="three no-margin">Card number:</div>
-            <div class="nine no-margin">**** **** **** 5678</div>
+            <div class="nine no-margin" th:text="${session.cardMasked}">**** **** **** 5678</div>
           </li>
 
-          <!-- <li>
-            <div class="three no-margin">3 digit CVC number:</div>
-            <div class="nine no-margin">123</div>
-          </li> -->
-
-          <!-- <li>
-            <div class="three no-margin">Valid from date:</div>
-            <div class="nine no-margin">03/14</div>
-          </li> -->
-
-          <li>
+          <li class="group">
             <div class="three no-margin">Expiry date:</div>
-            <div class="nine no-margin">03/18</div>
+            <div class="nine no-margin" th:text="${session.cardExpiry}">03/18</div>
+          </li>
+
+          <li class="group">
+            <div class="three no-margin">3 digit CVC number:</div>
+            <div class="nine no-margin" th:text="${session.cardCVN2}">123</div>
+          </li>
+
+          <li class="group">
+            <div class="three no-margin">Payment token:</div>
+            <div class="nine no-margin" th:text="${session.paymentToken}">12345678</div>
+          </li>
+
+          <li class="group">
+            <div class="three no-margin">Card type:</div>
+            <div class="nine no-margin" th:text="${session.cardType}">001</div>
           </li>
 
         </ul>
@@ -158,25 +161,18 @@
             <a class="reverse center full-width" href="thank-you.html">Confirm Order</a>
             <p>You will confirm your order on the next screen</p>
           </div>
-
         </section>
       </div><!-- /four -->
-
-
-
     </section>
-
   </div>
 
   <section class="order-total group">
     <p class="center"><strong>Order Total</strong></p>
     <p class="large price center">$20.00</p>
   </section>
-
   <footer class="group">
     <a class="reverse center" href="thank-you.html">Confirm Order</a>
     <p class="center">Please confirm to place your order</p>
   </footer>
-
 </body>
 </html>

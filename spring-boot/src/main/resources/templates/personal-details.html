@@ -6,7 +6,7 @@
 <!--[if IE 8]>
 <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!-->
-<html class="no-js"> <!--<![endif]-->
+<html class="no-js" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"> <!--<![endif]-->
 
 <head>
     <meta charset="UTF-8" />
@@ -90,14 +90,13 @@
               </div>
           </fieldset>
 
-
           <fieldset id="billing-address" class="border-bottom">
             <h3 class=" pb-30 pt-30">Billing Address</h3>
               <ul>
                   <li>
                     <div class="seven no-margin">
                       <label>Your Name*</label>
-                      <input placeholder="enter your name" type="text" />
+                      <input placeholder="enter your name" type="text" name="form_name" />
                     </div>
                   </li>
 
@@ -105,7 +104,7 @@
                     <div class="seven no-margin">
                       <label>Email *</label>
 
-                      <input placeholder="enter your email" type="text" />
+                      <input placeholder="enter your email" type="text" name="form_email" />
                     </div>
                   </li>
 
@@ -114,45 +113,37 @@
                     <div class="seven no-margin">
                       <label>House Number / Building Name *</label>
 
-                      <input placeholder="enter your house number / building name" type="text" />
+                      <input placeholder="enter your house number / building name" type="text" name="form_addr_no" />
                     </div>
                   </li>
 
                   <li>
                     <div class="seven no-margin">
                       <label>Street *</label>
-                      <input placeholder="enter your street name" type="text" />
+                      <input placeholder="enter your street name" type="text" name="form_addr_street" />
                     </div>
                   </li>
 
                   <li>
                     <div class="seven no-margin">
                       <label>City / Town *</label>
-                      <input placeholder="enter your city / town" type="text" />
+                      <input placeholder="enter your city / town" type="text" name="form_addr_city" />
                     </div>
                   </li>
 
                   <li>
                     <div class="seven no-margin">
                       <label>State / County *</label>
-                      <input placeholder="enter your state / county" type="text" />
+                      <input placeholder="enter your state / county" type="text" name="form_addr_state" />
                     </div>
                   </li>
 
                   <li>
                     <div class="seven no-margin">
                       <label>Zip / Postcode *</label>
-                      <input placeholder="enter your zip / postcode" type="text" />
+                      <input placeholder="enter your zip / postcode" type="text"  name="form_addr_zip" />
                     </div>
                   </li>
-
-                  <li>
-                    <div class="seven no-margin">
-                      <label>Use Billing as Shipping</label>
-                      <input type="checkbox" name="shipping" value="yes" checked="checked" />
-                    </div>
-                  </li>
-
               </ul>
           </fieldset>
 
@@ -162,21 +153,23 @@
                   <li>
                     <div class="seven no-margin">
                       <label>Card number *</label>
+                      <!-- Note that there is no name attribute on card number input field. -->
+                      <!-- This prevents credit card number to be send back to merchant server. -->
                       <input id="pan" placeholder="0000 0000 0000 0000" type="text" maxlength="16" />
                     </div>
                   </li>
 
                   <li>
                     <div class="seven no-margin">
-                      <label>3 digit CVC number *</label>
-                      <input placeholder="Three digits from the reverse of your card" type="password" />
+                      <label>3 digit CVN2 number *</label>
+                      <input placeholder="Three digits from the reverse of your card" type="password" name="form_card_cvn2" />
                     </div>
                   </li>
 
                   <li>
                     <div class="seven no-margin">
                       <label>Expiry date *</label>
-                      <input placeholder="00/00" type="text" />
+                      <input placeholder="00/00" type="text" name="form_card_exp" />
                     </div>
                   </li>
 

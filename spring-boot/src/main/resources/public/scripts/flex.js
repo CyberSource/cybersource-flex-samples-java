@@ -39,7 +39,7 @@ function createHiddenFields(response){
   // Create a hidden inputs for the tokenised response
   var wrapper = $("<div>");
   for (var key in response) {
-    $("<input type='hidden'>").attr('name', key).val(response[key]).appendTo(wrapper);
+    $("<input type='hidden'>").attr('name', 'flex_'+key).val(response[key]).appendTo(wrapper);
   }
 
   return wrapper;
