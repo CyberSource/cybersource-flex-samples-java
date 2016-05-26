@@ -1,0 +1,129 @@
+﻿@{
+    ViewBag.Title = "Checkout";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <span class="glyphicon glyphicon-lock"></span> Payment Form
+        </div>
+        <div class="panel-body">
+            <form accept-charset="UTF-8" action="/Checkout/Receipt" autocomplete="off" method="post" novalidate="novalidate">
+                <div class="form-group">
+                    <label for="cardType">Card Type</label>
+                    <select class="form-control" name="cardType" id="cardType">
+                        <option value="001">VISA</option>
+                        <option value="002">MASTERCARD</option>
+                        <option value="003">AMEX</option>
+                        <option value="004">DELTA</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="pan">Card number</label>
+                    <input type="text" id="pan" class="form-control" maxlength="19" />
+                </div>
+                <div class="form-group">
+                    <label for="form_card_cvn2">Security code</label>
+                    <input type="text" id="form_card_cvn2" name="form_card_cvn2" class="form-control" maxlength="4" />
+                </div>
+                <div class="form-group">
+                    <label for="expiry-month">Expiration Date</label>
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <select class="form-control" name="expiry-month" id="expiry-month">
+                                <option value="01">01 (JAN)</option>
+                                <option value="02">02 (FEB)</option>
+                                <option value="03">03 (MAR)</option>
+                                <option value="04">04 (APR)</option>
+                                <option value="05">05 (MAY)</option>
+                                <option value="06">06 (JUN)</option>
+                                <option value="07">07 (JUL)</option>
+                                <option value="08">08 (AUG)</option>
+                                <option value="09">09 (SEP)</option>
+                                <option value="10">10 (OCT)</option>
+                                <option value="11">11 (NOV)</option>
+                                <option value="12">12 (DEC)</option>
+                            </select>
+                        </div>
+                        <div class="col-xs-6">
+                            <select class="form-control" name="expiry-year">
+                                <option>2016</option>
+                                <option>2017</option>
+                                <option>2018</option>
+                                <option>2019</option>
+                                <option>2020</option>
+                                <option>2021</option>
+                                <option>2022</option>
+                                <option>2023</option>
+                                <option>2024</option>
+                                <option>2025</option>
+                                <option>2026</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!--HIDDEN INPUTS FOR TOKENISED RESPONSE-->
+                <input type="hidden" name="flex_keyId" />
+                <input type="hidden" name="flex_token" />
+                <input type="hidden" name="flex_maskedPan" />
+                <input type="hidden" name="flex_cardType" />
+                <input type="hidden" name="flex_timestamp" />
+                <input type="hidden" name="flex_signedFields" />
+                <input type="hidden" name="flex_signature" />
+
+                <!-- Button to attach our tokenise handler to. Note that it is NOT a submission input or button -->
+                <button type="button" id="pay-btn" class="btn btn-lg btn-block btn-primary">Pay Now</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+
+<!-- TEMPLATE INJECTED KEYSTORE -->
+<script>
+    window.keystore = @(Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(ViewBag.Jwk)));
+    console.log("Injected JSON containing JWK: ");
+    console.log(window.keystore);
+</script>
+<script src="~/Scripts/promiz.js"></script>
+<script src="~/Scripts/webcrypto-shim.js"></script>
+<script src="~/Scripts/flex.js"></script>
+<script>
+    FLEX.setup(window.keystore)
+
+    var responseHandler = function(status, response){
+
+      // Set the hidden fields
+      $("input[name=flex_keyId]").val(response.keyId)
+      $("input[name=flex_token]").val(response.token)
+      $("input[name=flex_maskedPan]").val(response.maskedPan)
+      $("input[name=flex_cardType]").val(response.cardType)
+      $("input[name=flex_timestamp]").val(response.timestamp)
+      $("input[name=flex_signedFields]").val(response.signedFields)
+      $("input[name=flex_signature]").val(response.signature)
+
+      // Submit form
+      $("form").submit()
+    }
+
+    var errorHandler = function(status, response){
+      alert("There has been an error: " + status)
+      console.error(response)
+      $("#pay-btn").prop("disabled", false).text("Pay Now");
+    }
+
+    $("#pay-btn").on("click", function(){      
+      $(this).prop("disabled", true).text("Processing...");
+
+      var cardData = {
+        cardType: $('#cardType').val(),
+        cardNumber: $('#pan').val()
+      }
+      FLEX.createToken(cardData, responseHandler, errorHandler)
+    })
+</script>
+
+}
