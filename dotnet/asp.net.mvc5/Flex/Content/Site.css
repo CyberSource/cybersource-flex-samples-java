@@ -1,0 +1,17 @@
+﻿body { 
+    margin-top: 50px; 
+}
+.container { 
+    max-width: 400px; 
+}
+.receipt-container {
+    max-width: 600px;
+}
+.receipt-container .panel-heading .btn.pull-right { 
+    margin-top: -5px; 
+}
+.receipt-container .table { 
+    table-layout: fixed; 
+    word-wrap: break-word; 
+    white-space: pre-wrap; 
+}
