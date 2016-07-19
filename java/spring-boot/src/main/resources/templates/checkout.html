@@ -23,7 +23,7 @@
             <form accept-charset="UTF-8" action="/receipt" autocomplete="off" method="post" novalidate="novalidate">
                 <div class="form-group">
                     <label for="cardType">Card Type</label>
-                    <select class="form-control" name="cardType" id="cardType">
+                    <select class="form-control" id="cardType">
                         <option value="001">VISA</option>
                         <option value="002">MASTERCARD</option>
                         <option value="003">AMEX</option>
@@ -35,14 +35,14 @@
                     <input type="text" id="pan" class="form-control" maxlength="19" />
                 </div>
                 <div class="form-group">
-                    <label for="form_card_cvn2">Security code</label>
-                    <input type="text" id="form_card_cvn2" name="form_card_cvn2" class="form-control" maxlength="4" />
+                    <label for="cvn">Security code</label>
+                    <input type="text" id="cvn" name="cvn" class="form-control" maxlength="4" />
                 </div>
                 <div class="form-group">
-                    <label for="expiry-month">Expiration Date</label>
+                    <label for="cardExpirationMonth">Expiration Date</label>
                     <div class="row">
                         <div class="col-xs-6">
-                            <select class="form-control" name="expiry-month" id="expiry-month">
+                            <select class="form-control" name="cardExpirationMonth" id="cardExpirationMonth">
                                 <option value="01">01 (JAN)</option>
                                 <option value="02">02 (FEB)</option>
                                 <option value="03">03 (MAR)</option>
@@ -58,7 +58,7 @@
                             </select>
                         </div>
                         <div class="col-xs-6">
-                            <select class="form-control" name="expiry-year">
+                            <select class="form-control" name="cardExpirationYear" id="cardExpirationYear">
                                 <option>2016</option>
                                 <option>2017</option>
                                 <option>2018</option>
@@ -134,7 +134,9 @@
 	  
       var cardData = {
         cardType: $('#cardType').val(),
-        cardNumber: $('#pan').val()
+        cardNumber: $('#pan').val(),
+        cardExpirationMonth: $('#cardExpirationMonth').val(),
+        cardExpirationYear: $('#cardExpirationYear').val()
       }
       FLEX.createToken(cardData, responseHandler, errorHandler)
     })

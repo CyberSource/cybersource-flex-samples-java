@@ -97,16 +97,20 @@
     var ciphertext = new Uint8Array(encryptedCardNumber);
     var base64Encoded = global.btoa(String.fromCharCode.apply(null, ciphertext));
 
-    var tokenisationRequestData = {
+    var tokensRequest = {
       keyId: global.keystore['kid'],
-      cardDetails: {
+      cardInfo: {
         cardNumber: base64Encoded,
         cardType: options.cardType
       }
     };
 
+    // Optional params
+    if (options.cardExpirationMonth) { tokensRequest['cardInfo']['cardExpirationMonth'] = options.cardExpirationMonth; }
+    if (options.cardExpirationYear) { tokensRequest['cardInfo']['cardExpirationYear'] = options.cardExpirationYear; }
+
     console.info("Tokenising...");
-    request.send(JSON.stringify(tokenisationRequestData));
+    request.send(JSON.stringify(tokensRequest));
    })
    .catch(function(err){
      console.log(err);
