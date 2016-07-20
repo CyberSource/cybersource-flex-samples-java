@@ -42,10 +42,8 @@ A minimalist java/spring-boot example integration using Flex-API tokenization.
 - Firefox 34+
 - Edge 12+
 - Opera 24+
-- Internet Explorer 11+
-- Safari 8+
 
-*NB: IE11 and Safari support requires the use of polyfills for both [webcrypto](https://github.com/vibornoff/webcrypto-shim) and [promises](https://github.com/Zolmeister/promiz) (as demonstrated on the checkout page in this example).*
+*NB: IE11 and Safari support could be achieved through the use of polyfills for promises and Web Crypto API such as [webcrypto-shim](https://github.com/vibornoff/webcrypto-shim) and [promiz](https://github.com/Zolmeister/promiz). However, these are not included in the examples.*
 
 ## Disclaimer
 
