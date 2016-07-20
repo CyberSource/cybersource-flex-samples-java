@@ -39,8 +39,7 @@ public class CheckoutController {
     }
 
     @RequestMapping("/checkout")
-    String checkout(final HttpSession session, final Model model) throws Exception {
-
+    String checkout(final HttpSession session, final Model model) {
         // prepare HTTP headers to make server2flex rest call
         final HttpHeaders headers = new HttpHeaders();
         headers.set("X-MERCHANT-ID", mid);

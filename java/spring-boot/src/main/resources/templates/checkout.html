@@ -6,11 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Checkout</title>
-    <link href="bootstrap-3.3.6-dist/css/bootstrap.min.css" rel="stylesheet" />
-    <style>
-        body { margin-top: 50px; }
-        .container { max-width: 400px; }
-    </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous" />
+    <link rel="stylesheet" href="Site.css" />
 </head>
 
 <body>
@@ -23,7 +20,7 @@
             <form accept-charset="UTF-8" action="/receipt" autocomplete="off" method="post" novalidate="novalidate">
                 <div class="form-group">
                     <label for="cardType">Card Type</label>
-                    <select class="form-control" name="cardType" id="cardType">
+                    <select class="form-control" id="cardType">
                         <option value="001">VISA</option>
                         <option value="002">MASTERCARD</option>
                         <option value="003">AMEX</option>
@@ -35,14 +32,14 @@
                     <input type="text" id="pan" class="form-control" maxlength="19" />
                 </div>
                 <div class="form-group">
-                    <label for="form_card_cvn2">Security code</label>
-                    <input type="text" id="form_card_cvn2" name="form_card_cvn2" class="form-control" maxlength="4" />
+                    <label for="cvn">Security code</label>
+                    <input type="text" id="cvn" name="cvn" class="form-control" maxlength="4" />
                 </div>
                 <div class="form-group">
-                    <label for="expiry-month">Expiration Date</label>
+                    <label for="cardExpirationMonth">Expiration Date</label>
                     <div class="row">
                         <div class="col-xs-6">
-                            <select class="form-control" name="expiry-month" id="expiry-month">
+                            <select class="form-control" name="cardExpirationMonth" id="cardExpirationMonth">
                                 <option value="01">01 (JAN)</option>
                                 <option value="02">02 (FEB)</option>
                                 <option value="03">03 (MAR)</option>
@@ -58,7 +55,7 @@
                             </select>
                         </div>
                         <div class="col-xs-6">
-                            <select class="form-control" name="expiry-year">
+                            <select class="form-control" name="cardExpirationYear" id="cardExpirationYear">
                                 <option>2016</option>
                                 <option>2017</option>
                                 <option>2018</option>
@@ -101,9 +98,8 @@
 </script>
 
 <!--SCRIPTS -->
-<script src="jquery-1.12.3.min.js"></script>
-<script src="promiz.js"></script>
-<script src="webcrypto-shim.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 <script src="flex.js"></script>
 <script>
     FLEX.setup(window.keystore)
@@ -134,7 +130,9 @@
 	  
       var cardData = {
         cardType: $('#cardType').val(),
-        cardNumber: $('#pan').val()
+        cardNumber: $('#pan').val(),
+        cardExpirationMonth: $('#cardExpirationMonth').val(),
+        cardExpirationYear: $('#cardExpirationYear').val()
       }
       FLEX.createToken(cardData, responseHandler, errorHandler)
     })

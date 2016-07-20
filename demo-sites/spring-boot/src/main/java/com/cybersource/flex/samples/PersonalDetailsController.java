@@ -28,7 +28,7 @@ public class PersonalDetailsController {
     private final RestTemplate restTemplate = new RestTemplate();
 
     @RequestMapping("/personal-details.html")
-    String index(final HttpSession session, final Model model) throws Exception {
+    String index(final HttpSession session, final Model model) {
         // prepare HTTP headers to make server2flex rest call
         final HttpHeaders headers = new HttpHeaders();
         headers.set("X-MERCHANT-ID", mid);

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace Flex.Models
+﻿namespace Flex.Models
 {
     public class DerPublicKey
     {
