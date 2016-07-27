@@ -1,4 +1,9 @@
-﻿using Flex.Services;
+﻿/**
+* Copyright (c) 2016 by CyberSource
+* Governing licence: https://github.com/CyberSource/cybersource-flex-samples/blob/master/LICENSE.md
+*/
+
+using Flex.Services;
 using Org.BouncyCastle.Crypto.Parameters;
 using System;
 using System.Linq;

@@ -1,6 +1,8 @@
-/*
- * Copyright 2016 CyberSource Corporation. All rights reserved.
- */
+/**
+* Copyright (c) 2016 by CyberSource
+* Governing licence: https://github.com/CyberSource/cybersource-flex-samples/blob/master/LICENSE.md
+*/
+
 package com.cybersource.flex.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;

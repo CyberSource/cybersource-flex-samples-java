@@ -1,3 +1,8 @@
+/**
+* Copyright (c) 2016 by CyberSource
+* Governing licence: https://github.com/CyberSource/cybersource-flex-samples/blob/master/LICENSE.md
+*/
+
 function tokenise(options, $form){
 	// Encrypt the card number
 	crypto.subtle.encrypt({name: "RSA-OAEP"}, flexPublicKey, stringToArrayBuffer(options.cardNumber)).then(function(encryptedCardnumber){
