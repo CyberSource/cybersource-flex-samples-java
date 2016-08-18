@@ -14,7 +14,6 @@ A minimalist java/spring-boot example integration using Flex-API tokenization.
 
   ```properties
   mid=YOUR_MID
-  profileId=YOUR_PROFILE
   cmmKey=123456789012345678901234567890
   organizationId=YOUR_ORD_ID
   keyStoreFile=/your_keystore_file.p12

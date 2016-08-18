@@ -49,14 +49,13 @@ public class CheckoutController {
 
         // prepare keys endpoint request payload
         KeyParameters requestBody = new KeyParameters();
-        requestBody.setProfileId(profileId); // merchant profile
         requestBody.setEncryptionType("WebCryptoAPI"); // encryption type
 
         // retrieve one time use RSA public key
         HttpEntity<KeyParameters> httpEntity = new HttpEntity<>(requestBody, headers);
         KeyResult key = restTemplate.postForObject(flexKeysEndpoint, httpEntity, KeyResult.class);
 
-        // parse Flex public key in DER format and store it in session for future use. 
+        // parse Flex public key in DER format and store it in session for future use.
         PublicKey flexPublicKey = securityService.decodePublicKey(key.getDer().getPublicKey());
         session.setAttribute("flexPublicKey", flexPublicKey);
 

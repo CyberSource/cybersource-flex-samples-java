@@ -13,7 +13,6 @@ A minimalist C# ASP.NET example integration using Flex-API tokenization.
   ```xml
   <appSettings>
     <add key="mid" value="YOUR_MID" />
-    <add key="profileId" value="YOUR_PROFILE" />
     <add key="cmmKey" value="123456789012345678901234567890" />
     <add key="organizationId" value="YOUR_ORD_ID" />
     <add key="keyStoreFile" value="C:\your_keystore_file.p12" />
