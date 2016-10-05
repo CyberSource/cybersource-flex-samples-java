@@ -10,15 +10,11 @@ A minimalist java/spring-boot example integration using Flex-API tokenization.
 
 ## Setup Instructions
 
-1. Modify `./src/main/resources/application.properties` with the credentials provided by customer support in your private BETA invite and that your `.p12` key is placed in the directory specified.
+1. Modify `./src/main/resources/application.properties` with the credentials created through [VISA Developer Portal](https://developer.visa.com/).
 
   ```properties
-  mid=YOUR_MID
-  cmmKey=123456789012345678901234567890
-  organizationId=YOUR_ORD_ID
-  keyStoreFile=/your_keystore_file.p12
-  keyStorePassword=YOUR_KEYSTORE_PASS
-  privateKeyPassword=YOUR_PRIVKEY_PASS
+  vdp.api-key=_YOUR_APPLICATION_SPECIFIC_API_KEY_
+  vdp.shared-secret=_YOUR_APPLICATION_SPECIFIC_SHARED_SECRET_
   ```
 
 2. Build and run the application using maven
@@ -29,7 +25,7 @@ A minimalist java/spring-boot example integration using Flex-API tokenization.
 
 ## Tips
 
-- If you are having issues, checkout the full [FLEX documentation](http://apps.cybersource.com/library/documentation/dev_guides/Secure_Acceptance_Flex/html/).
+- If you are having issues, checkout the full [FLEX documentation](https://developer.visa.com/products/cybersource/reference#cybersource__cybersource_flex_api).
 
 - To change the port the application is served on, update `server.port=8443` in `application.properties`, replacing `8443` with your desired port number.
 

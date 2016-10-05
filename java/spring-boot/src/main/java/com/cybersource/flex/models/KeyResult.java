@@ -1,8 +1,7 @@
 /**
-* Copyright (c) 2016 by CyberSource
-* Governing licence: https://github.com/CyberSource/cybersource-flex-samples/blob/master/LICENSE.md
-*/
-
+ * Copyright (c) 2016 by CyberSource
+ * Governing licence: https://github.com/CyberSource/cybersource-flex-samples/blob/master/LICENSE.md
+ */
 package com.cybersource.flex.models;
 
 public class KeyResult {
@@ -14,6 +13,7 @@ public class KeyResult {
     public String getKeyId() {
         return keyId;
     }
+
     public void setKeyId(String keyId) {
         this.keyId = keyId;
     }
@@ -21,6 +21,7 @@ public class KeyResult {
     public DerPublicKey getDer() {
         return der;
     }
+
     public void setDer(DerPublicKey derPublicKey) {
         this.der = derPublicKey;
     }
@@ -28,6 +29,7 @@ public class KeyResult {
     public JsonWebKey getJwk() {
         return jwk;
     }
+
     public void setJwk(JsonWebKey jsonWebKey) {
         this.jwk = jsonWebKey;
     }
