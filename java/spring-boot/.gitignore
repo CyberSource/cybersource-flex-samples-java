@@ -38,3 +38,5 @@ overridedb.*
 .DS_Store
 .factorypath
 dump.rdb
+
+nbactions.xml

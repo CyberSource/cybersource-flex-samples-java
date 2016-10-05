@@ -34,7 +34,6 @@ namespace Flex.Services
         private static string flexKeysEndpoint = "https://testflex.cybersource.com/cybersource/flex/v1/keys";
 
         private string mid;
-        private string profileId;
         private string cmmKey;
         private string organizationId;
         private string keyStoreFile;
@@ -45,7 +44,6 @@ namespace Flex.Services
         {
             // Read in flex configuration from web.config    
             mid = WebConfigurationManager.AppSettings["mid"];
-            profileId = WebConfigurationManager.AppSettings["profileId"];
             cmmKey = WebConfigurationManager.AppSettings["cmmKey"];
             organizationId = WebConfigurationManager.AppSettings["organizationId"];
             keyStoreFile = WebConfigurationManager.AppSettings["keyStoreFile"];
@@ -116,7 +114,6 @@ namespace Flex.Services
             // prepare keys endpoint request payload
             var payload = new KeyParameters()
             {
-                profileId = profileId,
                 encryptionType = "WebCryptoAPI"
             };
 

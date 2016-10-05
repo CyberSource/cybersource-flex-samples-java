@@ -8,8 +8,9 @@
   var _flexPublicKey;
 
   var _endpoints = {
-    keys: "https://testflex.cybersource.com/cybersource/flex/v1/keys",
-    tokens: "https://testflex.cybersource.com/cybersource/flex/v1/tokens"
+    keys: "https://sandbox.api.visa.com/cybersource/payments/flex/v1/keys",
+    // note that you mustn't pass API Key with a call to tokens endpoint.
+    tokens: "https://sandbox.api.visa.com/cybersource/payments/flex/v1/tokens"
   }
   /* PRIVATE FUNCTIONS */
   var _isFunction = function(functionToCheck) {
