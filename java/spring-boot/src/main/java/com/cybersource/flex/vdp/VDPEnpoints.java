@@ -5,7 +5,7 @@
 package com.cybersource.flex.vdp;
 
 public enum VDPEnpoints {
-    Sandbox("https://sandbox.api.visa.com/cybersource/payments/flex/v1/keys", "https://sandbox.api.visa.com/cybersource/payments/flex/v1/tokens"),
+    Sandbox("https://sandbox.api.visa.com/cybersource/payments/flex/v1/keys", "https://sandbox.webapi.visa.com/cybersource/payments/flex/v1/tokens"),
     Production("https://api.visa.com/cybersource/payments/flex/v1/keys", "https://api.visa.com/cybersource/payments/flex/v1/tokens");
 
     private final String keysEnpoint;
