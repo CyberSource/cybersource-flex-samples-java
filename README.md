@@ -4,7 +4,7 @@
 
 Storing your customer’s card data can dramatically increase your repeat-custom conversion rate, but can also add additional risk and PCI DSS overhead. This can be mitigated by tokenizing card data. CyberSource will store your customer’s card data, replacing it with a token that can only be used by you.
 
-Flex Token API is our most secure method for Tokenizing card data. Your customer’s card number is encrypted on their own device, for example inside a browser or native app, and sent directly to CyberSource. This means card data bypasses your systems altogether, typically qualifying e-commerce only merchants for [SAQ A-EP](https://www.pcisecuritystandards.org/documents/Understanding_SAQs_PCI_DSS_v3.pdf).
+Flex Token API is a secure method for Tokenizing card data. Your customer’s card number is encrypted on their own device, for example inside a browser or native app, and sent directly to CyberSource. This means card data bypasses your systems altogether, typically qualifying e-commerce only merchants for [SAQ A-EP](https://www.pcisecuritystandards.org/documents/Understanding_SAQs_PCI_DSS_v3.pdf).
 
 On-device encryption helps to protect your customers from attacks on network middleware such as app accelerators, DLPs, CDNs, and malicious hotspots.
 
