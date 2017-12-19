@@ -9,13 +9,16 @@ import com.cybersource.flex.models.KeyParametersMessageConverter;
 import com.cybersource.flex.models.KeyResult;
 import com.cybersource.flex.vdp.VDPEnpoints;
 import java.security.PublicKey;
+import java.util.HashMap;
 import java.util.Map;
 import javax.annotation.PostConstruct;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -42,8 +45,14 @@ public class CheckoutController {
         restTemplate.getMessageConverters().add(0, new KeyParametersMessageConverter(apiKey, sharedSecret));
     }
 
+    @ModelAttribute
+    public void setFramingResponseHeader(HttpServletResponse response) {
+        response.setHeader("X-Frame-Options", "DENY");
+    }
+
     @RequestMapping("/")
-    String redirect() {
+    String redirect(final HttpSession session) {
+        session.invalidate();
         return "redirect:checkout";
     }
 
@@ -63,7 +72,9 @@ public class CheckoutController {
     }
 
     @RequestMapping(value = "/receipt", method = RequestMethod.POST)
-    String receipt(@RequestParam final Map<String, Object> postParams, final HttpSession session, final Model model) {
+    String receipt(@RequestParam Map<String, Object> postParams, final HttpSession session, final Model model) {
+        postParams = validateUntrustedParameters(postParams);
+
         // Read in the public key to use and remove it from the session
         PublicKey flexPublicKey = (PublicKey) session.getAttribute("flexPublicKey");
         session.removeAttribute("flexPublicKey"); // no longer needed
@@ -89,9 +100,18 @@ public class CheckoutController {
          * For demonstration purposes, all post parameters are added to the view
          * model to display data received from cardholder's browser.
          */
-
         model.addAttribute("postParams", postParams);
         return "receipt";
+    }
+
+    private Map<String, Object> validateUntrustedParameters(Map<String, Object> parameters) {
+        Map<String, Object> retVal = new HashMap<>();
+        // Each parameter must undergo proper validation / sanitization.
+        // The type of validation to be implemented will vary between individual
+        // Flex API integrations. It is merchant's responsibility to implement adequate
+        // parameter validation for production deployments.
+        parameters.forEach((k, v) -> retVal.put(k, v));
+        return retVal;
     }
 
 }
