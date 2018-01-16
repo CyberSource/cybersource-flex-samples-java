@@ -24,7 +24,7 @@ A minimalist Java JSP example integration using Flex-API tokenization and Flex m
   mvn clean install
   ```
 
-  This will produce a `.war` file that can be deployed to a Tomcat server instance. The deployed application will serve a demonstration card tokenization page on `http://localhost:8080/`. To serve from a different domain, ensure that `targetOrigin` domain is specified when making a call to the `/keys` endpoint. For a detailed example please see [FlexKeyProvider.java](./src/main/java/com.cybersource/example/FlexKeyProvider.java), line 47.
+  This will produce a `.war` file that can be deployed to a Tomcat server instance. The deployed application will serve a demonstration card tokenization page on `http://localhost:8080/`. To serve from a different domain, ensure that `targetOrigin` domain is specified when making a call to the `/keys` endpoint. For a detailed example please see [FlexKeyProvider.java](./src/main/java/com/cybersource/example/FlexKeyProvider.java), line 47.
 
 ## Tips
 
