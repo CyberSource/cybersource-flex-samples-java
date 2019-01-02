@@ -5,8 +5,9 @@ This repository provides simple examples demonstrating usage of the CyberSource 
 ## Usage
 
 1. Clone or download this repository.
-2. Run mvn package in the sample you want to try (jsp-microform or jsp-flexjs)
-3. Copy the output WAR file to your web server directory
+2. Update webapp/WEB-INF/credentials.properties with your CAS/Sandbox credentials
+3. Run mvn package in the sample you want to try (jsp-microform or jsp-flexjs)
+4. Copy the output WAR file to your web server directory
 
 ## Requirements
 * Java 1.8 or later . 
