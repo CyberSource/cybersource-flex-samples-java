@@ -9,8 +9,8 @@ This repository provides simple examples demonstrating usage of the CyberSource 
 3. Copy the output WAR file to your web server directory
 
 ## Requirements
-..*Java 1.8 or later
-..*Tomcat web server 
+* Java 1.8 or later . 
+* Tomcat web server .  
 
 **_NOTE: While this sample currently requires Java we are planning to release samples in other languages/stacks over the coming months_**
 
