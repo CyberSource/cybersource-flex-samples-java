@@ -1,6 +1,6 @@
-# JSP (Tomcat) example using hosted Flex microform
+# Flex Microform Sample
 
-A minimalist Java JSP example integration using Flex-API tokenization and Flex microform embedded card capture.
+Flex Microform is a CyberSource-hosted HTML/Javascript component that replaces the card number input field on your checkout page and calls the Flex API on your behalf. This simple example integration demonstrates using the Flex Microform SDK to embed this PCI SAQ-A level component in your form. For more details on this see our Developer Guide at https://developer.cybersource.com/api/developer-guides/dita-flex/SAFlexibleToken/FlexMicroform.html
 
 ## Prerequisites
 
@@ -28,7 +28,7 @@ A minimalist Java JSP example integration using Flex-API tokenization and Flex m
 
 ## Tips
 
-- If you are having issues, checkout the full [Hosted FLEX documentation](https://www.cybersource.com/developers/integration_methods/hosted_flex).
+- If you are having issues, checkout the full [Hosted FLEX documentation](https://developer.cybersource.com/api/developer-guides/dita-flex/SAFlexibleToken/FlexMicroform.html).
 
 - If the application throws `java.security.InvalidKeyException: Illegal key size` you have probably not installed the [JCE unlimited policy files](http://www.oracle.com/technetwork/java/javase/downloads/jce8-download-2133166.html).
 
