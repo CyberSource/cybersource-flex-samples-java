@@ -1,0 +1,22 @@
+/**
+* Copyright (c) 2016 by CyberSource
+* Governing licence: https://github.com/CyberSource/cybersource-flex-samples/blob/master/LICENSE.md
+*/
+
+body {
+    margin-top: 50px;
+}
+.container {
+    max-width: 400px;
+}
+.receipt-container {
+    max-width: 600px;
+}
+.receipt-container .panel-heading .btn.pull-right {
+    margin-top: -5px;
+}
+.receipt-container .table {
+    table-layout: fixed;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+}
