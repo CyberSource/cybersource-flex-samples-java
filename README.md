@@ -28,7 +28,7 @@ You are in total control of the look and feel, with the ability to seamlessly bl
 
 On-device encryption helps to protect your customers from attacks on network middleware such as app accelerators, DLPs, CDNs, and malicious hotspots.
 
-The token can be used in lieu of actual card data in server-side requests for other CyberSource services, for example to make a payment, using our REST APIs : https://developer.cybersource.com/api/reference/api-reference.html
+The token can be used in lieu of actual card data in server-side requests for other CyberSource services, for example to make a payment, using our REST APIs: https://developer.cybersource.com/api/reference/api-reference.html
 
 ## Samples
 
