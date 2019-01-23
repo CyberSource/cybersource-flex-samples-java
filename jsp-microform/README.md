@@ -21,7 +21,7 @@ Flex Microform is a CyberSource-hosted HTML/JavaScript component that replaces t
 
 2. Build and run the application using maven
   ```bash
-  mvn clean install
+  mvn clean package
   ```
 
   This will produce a `.war` file that can be deployed to a Tomcat server instance. The deployed application will serve a demonstration card tokenization page on `http://localhost:8080/`. To serve from a different domain, ensure that `targetOrigin` domain is specified when making a call to the `/keys` endpoint. For a detailed example please see [FlexKeyProvider.java](./src/main/java/com/cybersource/example/FlexKeyProvider.java), line 47.
