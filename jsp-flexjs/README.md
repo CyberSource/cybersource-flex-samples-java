@@ -1,6 +1,6 @@
-# JSP (Tomcat) example using hosted Flex JS
+# Flex API Sample
 
-A minimalist Java JSP example integration using Flex Javascript SDK tokenization.
+A simple client-side tokenization example integration using Flex Javascript SDK to access the Flex API. For more details on this see our Developer Guide at https://developer.cybersource.com/api/developer-guides/dita-flex/SAFlexibleToken/FlexAPI.html 
 
 ## Prerequisites
 
@@ -28,7 +28,7 @@ A minimalist Java JSP example integration using Flex Javascript SDK tokenization
 
 ## Tips
 
-- If you are having issues, checkout the full [Hosted FLEX documentation](https://www.cybersource.com/developers/integration_methods/hosted_flex).
+- If you are having issues, checkout the full [FLEX API documentation](https://developer.cybersource.com/api/developer-guides/dita-flex/SAFlexibleToken/FlexAPI.html).
 
 - If the application throws `java.security.InvalidKeyException: Illegal key size` you have probably not installed the [JCE unlimited policy files](http://www.oracle.com/technetwork/java/javase/downloads/jce8-download-2133166.html).
 
