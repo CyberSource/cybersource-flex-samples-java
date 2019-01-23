@@ -32,9 +32,9 @@ The token can be used in lieu of actual card data in server-side requests for ot
 
 ## Samples
 
-### Javascript Sample
+### Javascript (Flex API) Sample
 
-This sample demonstrates how your checkout form can remain exactly as it is today, the only addition will be a javascript call to tokenize the customers credit card information directly FROM their browser (to CyberSource) replacing that data with a secure PCI-compliant token which you can then post up to your server along with the other non-PCI order data.  This provides PCI-DSS SAQ-A(EP) level compliance for your application.
+This sample demonstrates how your checkout form can remain exactly as it is today, the only addition will be a javascript call to tokenize the customers credit card information directly FROM their browser (to CyberSource) replacing that data with a secure PCI-compliant token which you can then post up to your server along with the other non-PCI order data.  This provides PCI-DSS SAQ-A(EP) level compliance for your application.  
 
 ### Microform Sample
 
