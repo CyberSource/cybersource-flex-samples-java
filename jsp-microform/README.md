@@ -1,6 +1,6 @@
 # Flex Microform Sample
 
-Flex Microform is a CyberSource-hosted HTML/Javascript component that replaces the card number input field on your checkout page and calls the Flex API on your behalf. This simple example integration demonstrates using the Flex Microform SDK to embed this PCI SAQ-A level component in your form. For more details on this see our Developer Guide at https://developer.cybersource.com/api/developer-guides/dita-flex/SAFlexibleToken/FlexMicroform.html
+Flex Microform is a CyberSource-hosted HTML/JavaScript component that replaces the card number input field on your checkout page and calls the Flex API on your behalf. This simple example integration demonstrates using the Flex Microform SDK to embed this PCI SAQ A level component in your form. For more details on this see our Developer Guide at:  https://developer.cybersource.com/api/developer-guides/dita-flex/SAFlexibleToken/FlexMicroform.html
 
 ## Prerequisites
 
@@ -11,11 +11,11 @@ Flex Microform is a CyberSource-hosted HTML/Javascript component that replaces t
 
 ## Setup Instructions
 
-1. Modify `./src/main/webapp/credentials.properties` with the Cybersource REST credentials created through [EBC Portal](https://ebc2.cybersource.com/).
+1. Modify `./src/main/webapp/credentials.properties` with the CyberSource REST credentials created through [EBC Portal](https://ebc2test.cybersource.com/).
 
   ```
   merchantId=YOUR MERCHANT ID
-  keyId=YOUR KEY ID
+  keyId=YOUR KEY ID (SHARED SECRET SERIAL NUMBER)
   sharedSecret=YOUR SHARED SECRET
   ```
 
@@ -28,7 +28,7 @@ Flex Microform is a CyberSource-hosted HTML/Javascript component that replaces t
 
 ## Tips
 
-- If you are having issues, checkout the full [Hosted FLEX documentation](https://developer.cybersource.com/api/developer-guides/dita-flex/SAFlexibleToken/FlexMicroform.html).
+- If you are having issues, checkout the full [FLEX Microform documentation](https://developer.cybersource.com/api/developer-guides/dita-flex/SAFlexibleToken/FlexMicroform.html).
 
 - If the application throws `java.security.InvalidKeyException: Illegal key size` you have probably not installed the [JCE unlimited policy files](http://www.oracle.com/technetwork/java/javase/downloads/jce8-download-2133166.html).
 
