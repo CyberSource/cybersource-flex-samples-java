@@ -1,6 +1,6 @@
 # Flex API Sample
 
-A simple client-side tokenization example integration using Flex Javascript SDK to access the Flex API. For more details on this see our Developer Guide at https://developer.cybersource.com/api/developer-guides/dita-flex/SAFlexibleToken/FlexAPI.html 
+A simple client-side tokenization example integration using Flex JavaScript SDK to access the Flex API. For more details on this see our Developer Guide at: https://developer.cybersource.com/api/developer-guides/dita-flex/SAFlexibleToken/FlexAPI.html 
 
 ## Prerequisites
 
@@ -11,17 +11,17 @@ A simple client-side tokenization example integration using Flex Javascript SDK 
 
 ## Setup Instructions
 
-1. Modify `./src/main/webapp/credentials.properties` with the Cybersource REST credentials created through [EBC Portal](https://ebc2.cybersource.com/).
+1. Modify `./src/main/webapp/credentials.properties` with the CyberSource REST credentials created through [EBC Portal](https://ebc2test.cybersource.com/).
 
   ```
   merchantId=YOUR MERCHANT ID
-  keyId=YOUR KEY ID
+  keyId=YOUR KEY ID (SHARED SECRET SERIAL NUMBER)
   sharedSecret=YOUR SHARED SECRET
   ```
 
 2. Build and run the application using maven
   ```bash
-  mvn package
+  mvn clean package
   ```
 
   This will produce a `.war` file that can be deployed to a Tomcat server instance. The deployed application will serve a demonstration card tokenization page on `http://localhost:8080/`. To serve from a different domain, ensure that `targetOrigin` domain is specified when making a call to the `/keys` endpoint. For a detailed example please see [FlexKeyProvider.java](./src/main/java/com/cybersource/example/FlexKeyProvider.java), line 47.
