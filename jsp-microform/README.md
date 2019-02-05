@@ -4,32 +4,39 @@ Flex Microform is a CyberSource-hosted HTML/JavaScript component that replaces t
 
 ## Prerequisites
 
-- [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
-- [JCE unlimited policy files](http://www.oracle.com/technetwork/java/javase/downloads/jce8-download-2133166.html)
-- [Maven](https://maven.apache.org/install.html)
-- [Tomcat 8 Web Server](http://tomcat.apache.org)
+- Node.js 10.15.1 or later
+- Express web application framework
+- NPM
 
 ## Setup Instructions
 
-1. Modify `./src/main/webapp/credentials.properties` with the CyberSource REST credentials created through [EBC Portal](https://ebc2test.cybersource.com/).
+1. Clone or download this repo.
 
-  ```
-  merchantId=YOUR MERCHANT ID
-  keyId=YOUR KEY ID (SHARED SECRET SERIAL NUMBER)
-  sharedSecret=YOUR SHARED SECRET
+2. Modify app.js with the CyberSource REST credentials created through [EBC Portal](https://ebc2test.cybersource.com/).
+
+  ```javascript
+  const MerchantId = 'YOUR MERCHANT ID';
+  const MerchantKeyId = 'YOUR KEY ID (SHARED SECRET SERIAL NUMBER)';
+  const MerchantSecretKey = 'YOUR SHARED SECRET';
   ```
 
-2. Build and run the application using maven
+3. Pull down the package dependencies
   ```bash
-  mvn clean package
+  cd express-microform
+  npm install
   ```
 
-  This will produce a `.war` file that can be deployed to a Tomcat server instance. The deployed application will serve a demonstration card tokenization page on `http://localhost:8080/`. To serve from a different domain, ensure that `targetOrigin` domain is specified when making a call to the `/keys` endpoint. For a detailed example please see [FlexKeyProvider.java](./src/main/java/com/cybersource/example/FlexKeyProvider.java), line 47.
+4. Run the web server
+```bash
+DEBUG=express-microform:* npm start
+```
+
+5. Navigate to http://localhost:3000 to try the sample application
+
+
 
 ## Tips
 
 - If you are having issues, checkout the full [FLEX Microform documentation](https://developer.cybersource.com/api/developer-guides/dita-flex/SAFlexibleToken/FlexMicroform.html).
-
-- If the application throws `java.security.InvalidKeyException: Illegal key size` you have probably not installed the [JCE unlimited policy files](http://www.oracle.com/technetwork/java/javase/downloads/jce8-download-2133166.html).
 
 - Safari version 10 and below does not support `RsaOaep256` encryption schema, for those browser please specify encryption type `RsaOaep` when making a call to the `/keys` endpoint.  For a detailed example please see [FlexKeyProvider.java](./src/main/java/com.cybersource/example/FlexKeyProvider.java), line 47.
