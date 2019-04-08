@@ -39,3 +39,37 @@ This sample demonstrates how your checkout form can remain exactly as it is toda
 ### Microform Sample
 
 This sample demonstrates how you can replace the sensitive data fields (credit card number) on your checkout form with a field (Flex Microform) hosted entirely on CyberSource servers. This field will accept and tokenize the customer's credit card information directly from their browser on a resource hosted by CyberSource, replacing that data with a secure PCI-compliant token. This can then be sent to your server along with the other non-PCI order data.  This can help achieve PCI-DSS SAQ A level compliance for your application as even your client-side code does not contain a mechanism to handle the credit card information.
+
+## Using the Flex Payment Token
+
+You can use the token generated to make a payment with the CyberSource REST API (https://developer.cybersource.com/api/reference/api-reference.html).  
+
+Place the token in the CustomerId field:
+
+```json
+{
+  "clientReferenceInformation": {
+    "code": "TC50171_3"
+  },
+  "processingInformation": {
+    "commerceIndicator": "internet"
+  },
+  "paymentInformation": {
+    "customer": {
+      "customerId": "7500BB199B4270EFE05340588D0AFCAD"
+    }
+  },
+  "orderInformation": {
+    "amountDetails": {
+      "totalAmount": "22",
+      "currency": "USD"
+    },
+    "billTo": {
+      "firstName": "John",
+      "lastName": "Doe"
+    }
+  }
+}
+
+```
+
