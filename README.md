@@ -13,7 +13,7 @@ This repository provides simple examples demonstrating usage of the CyberSource 
 * Java 1.8 or later 
 * Tomcat web server
 
-**_NOTE: While this sample currently requires Java, we are planning to release samples in other languages/stacks over the coming months_**
+**_NOTE: We also have samples for Flex available in .NET, PHP & Node.js _**
 
 ## API Reference
 While these examples use the JavaScript libraries which we recommend as the most convenient option, you can try out the APIs behind the JavaScript SDKs by visiting our API Reference at https://developer.cybersource.com/api/reference/api-reference.html
