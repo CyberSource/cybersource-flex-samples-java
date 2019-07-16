@@ -15,6 +15,13 @@ This repository provides simple examples demonstrating usage of the CyberSource 
 
 **_NOTE: We also have samples for Flex available in .NET, PHP & Node.js _**
 
+
+## Run with Docker
+1. Clone or download this repository.
+2. Update src/main/webapp/WEB-INF/credentials.properties with your [CyberSource sandbox credentials](https://ebc2test.cybersource.com).
+3. Run ```docker-compose run jsp-microform-build``` and/or ```docker-compose run jsp-flexjs-build``` 
+4. Run ```docker-compose up web``` and access http://localhost:8080/flexjs and/or http://localhost:8080/microform 
+
 ## API Reference
 While these examples use the JavaScript libraries which we recommend as the most convenient option, you can try out the APIs behind the JavaScript SDKs by visiting our API Reference at https://developer.cybersource.com/api/reference/api-reference.html
 
