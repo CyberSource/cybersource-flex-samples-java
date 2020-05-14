@@ -1,0 +1,32 @@
+version: '2'
+services:
+  web:
+    image: tomcat
+    ports: 
+      - "8080:8080"
+    volumes:
+      - ./jsp-microform/target/jsp-microform-1.0.war:/usr/local/tomcat/webapps/microform.war
+      - ./jsp-microform/target/jsp-microform-1.0:/usr/local/tomcat/webapps/microform
+      - ./jsp-flexjs/target/jsp-flexjs-1.0.war:/usr/local/tomcat/webapps/flexjs.war
+      - ./jsp-flexjs/target/jsp-flexjs-1.0:/usr/local/tomcat/webapps/flexjs
+
+  jsp-flexjs-build:
+    image: maven
+    volumes:
+      - ./jsp-flexjs/:/project
+      - m2repo:/root/.m2
+    working_dir: /project
+    entrypoint: mvn
+    command: clean package
+
+  jsp-microform-build:
+    image: maven
+    volumes:
+      - ./jsp-microform/:/project
+      - m2repo:/root/.m2
+    working_dir: /project
+    entrypoint: mvn
+    command: clean package
+
+volumes:
+  m2repo:
