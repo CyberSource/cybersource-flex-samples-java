@@ -1,39 +1,42 @@
 /**
  * Copyright (c) 2017 by CyberSource
- * Governing licence: https://github.com/CyberSource/cybersource-flex-samples/blob/master/LICENSE.md
  */
 package com.cybersource.example;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.Arrays;
-import java.util.Map;
+import java.util.Properties;
 
 public class MerchantCredentials {
+    public static Properties getMerchantDetails() {
+        Properties props = new Properties();
 
-    private final Map<String, char[]> properties;
+        // HTTP_Signature = http_signature and JWT = jwt
+        props.setProperty("authenticationType", "http_signature");
+        props.setProperty("merchantID", "testrest");
+        props.setProperty("runEnvironment", "CyberSource.Environment.SANDBOX");
+        props.setProperty("requestJsonPath", "src/main/resources/request.json");
 
-    public MerchantCredentials(InputStream resource) throws IOException {
-        properties = new CharArrayProperties(resource);
+                // JWT Parameters
+        props.setProperty("keyAlias", "anet_test_001");
+        props.setProperty("keyPass", "anet_test_001");
+        props.setProperty("keyFileName", "anet_test_001");
+
+        // P12 key path. Enter the folder path where the .p12 file is located.
+
+        props.setProperty("keysDirectory", "src/main/resources");
+        // HTTP Parameters
+        props.setProperty("merchantKeyId", "08c94330-f618-42a3-b09d-e1e43be5efda");
+        props.setProperty("merchantsecretKey", "yBJxy6LjM2TmcPGu+GaJrHtkke25fPpUX+UY6/L/1tE=");
+        // Logging to be enabled or not.
+        props.setProperty("enableLog", "true");
+        // Log directory Path
+        props.setProperty("logDirectory", "log");
+        props.setProperty("logFilename", "cybs");
+
+        // Log file size in KB
+        props.setProperty("logMaximumSize", "5M");
+
+        return props;
+
     }
 
-    public String getMerchantId() {
-        char[] merchantId = properties.get("merchantId");
-        return (merchantId != null) ? new String(merchantId) : null;
-    }
-
-    public String getKeyId() {
-        char[] keyId = properties.get("keyId");
-        return (keyId != null) ? new String(keyId) : null;
-    }
-
-    public char[] getSharedSecret() {
-        return properties.get("sharedSecret");
-    }
-
-    public void destroy() {
-        for (char[] value : properties.values()) {
-            Arrays.fill(value, '\0');
-        }
-    }
 }
