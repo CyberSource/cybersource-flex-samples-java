@@ -26,7 +26,7 @@
             <div class="card-body">
                 <h1>Checkout</h1>
                 <div id="errors-output" role="alert"></div>
-                <form action="/token" id="my-sample-form" method="post">
+                <form action="token.jsp" id="my-sample-form" method="post">
                     <div class="form-group">
                         <label for="cardholderName">Name</label>
                         <input id="cardholderName" class="form-control" name="cardholderName" placeholder="Name on the card">
