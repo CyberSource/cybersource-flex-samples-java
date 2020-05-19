@@ -16,9 +16,9 @@ public class MerchantCredentials {
         props.setProperty("requestJsonPath", "src/main/resources/request.json");
 
                 // JWT Parameters
-        props.setProperty("keyAlias", "anet_test_001");
-        props.setProperty("keyPass", "anet_test_001");
-        props.setProperty("keyFileName", "anet_test_001");
+        props.setProperty("keyAlias", "testrest");
+        props.setProperty("keyPass", "testrest");
+        props.setProperty("keyFileName", "testrest");
 
         // P12 key path. Enter the folder path where the .p12 file is located.
 
