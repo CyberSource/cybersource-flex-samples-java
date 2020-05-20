@@ -5,9 +5,12 @@ This repository provides simple examples demonstrating usage of the CyberSource 
 ## Usage
 
 1. Clone or download this repository.
-2. Update webapp/WEB-INF/credentials.properties with your [CyberSource sandbox credentials](https://ebc2test.cybersource.com). 
-3. Run ```mvn package``` in the sample you want to try (jsp-microform or jsp-flexjs).
-4. Copy the output WAR file to your web server directory.
+2. Run ```mvn package``` in the sample you want to try (jsp-microform or jsp-flexjs).
+3. Copy the output WAR file to your web server directory. E.g.
+````
+cp ./target/jsp-microform-1.0.war /usr/local/apache-tomcat-9.0.13/webapps/.
+````
+4. Browse to the checkout page.  E.g. http://localhost:8080/jsp-microform-1.0
 
 ## Requirements
 * Java 1.8 or later 
@@ -16,7 +19,31 @@ This repository provides simple examples demonstrating usage of the CyberSource 
 **_NOTE: We also have samples for Flex available in .NET, PHP & Node.js _**
 
 ## API Reference
-While these examples use the JavaScript libraries which we recommend as the most convenient option, you can try out the APIs behind the JavaScript SDKs by visiting our API Reference at https://developer.cybersource.com/api/reference/api-reference.html
+While these examples use the JavaScript libraries which we recommend as the most convenient option, you can try out the APIs behind the JavaScript SDKs by visiting our API Reference at https://developer.cybersource.com/api-reference-assets/index.html#flex
+
+
+## Setting Your API Credentials
+
+To set your API credentials for an API request, configure the following information in  src/main/java/com/cybersource/example/MerchantCredentials.java file:
+  
+  * Http Signature
+
+```java
+   authenticationType  = http_Signature
+   merchantID 	       = your_merchant_id
+   merchantKeyId       = your_key_serial_number
+   merchantsecretKey   = your_key_shared_secret
+```
+  * Jwt
+
+```java
+   authenticationType  = Jwt
+   merchantID 	       = your_merchant_id
+   keyAlias	       = your_merchant_id
+   keyPassword	       = your_merchant_id
+   keyFileName         = your_merchant_id
+   keysDirectory       = resources
+```
 
 ## Background on PCI-DSS
 
@@ -28,7 +55,7 @@ You are in total control of the look and feel, with the ability to seamlessly bl
 
 On-device encryption helps to protect your customers from attacks on network middleware such as app accelerators, DLPs, CDNs, and malicious hotspots.
 
-The token can be used in lieu of actual card data in server-side requests for other CyberSource services, for example to make a payment, using our REST APIs: https://developer.cybersource.com/api/reference/api-reference.html
+The token can be used in lieu of actual card data in server-side requests for other CyberSource services, for example to make a payment, using our REST APIs: https://developer.cybersource.com/api-reference-assets/index.html#payments_payments
 
 ## Samples
 
@@ -42,7 +69,7 @@ This sample demonstrates how you can replace the sensitive data fields (credit c
 
 ## Using the Flex Payment Token
 
-You can use the token generated to make a payment with the CyberSource REST API (https://developer.cybersource.com/api/reference/api-reference.html).  
+You can use the token generated to make a payment with the CyberSource REST API (https://developer.cybersource.com/api-reference-assets/index.html#payments_payments).  
 
 Place the token in the CustomerId field:
 
@@ -51,25 +78,28 @@ Place the token in the CustomerId field:
   "clientReferenceInformation": {
     "code": "TC50171_3"
   },
-  "processingInformation": {
-    "commerceIndicator": "internet"
-  },
-  "paymentInformation": {
-    "customer": {
-      "customerId": "7500BB199B4270EFE05340588D0AFCAD"
-    }
-  },
   "orderInformation": {
     "amountDetails": {
-      "totalAmount": "22",
+      "totalAmount": "102.21",
       "currency": "USD"
     },
     "billTo": {
       "firstName": "John",
-      "lastName": "Doe"
+      "lastName": "Doe",
+      "address1": "1 Market St",
+      "locality": "san francisco",
+      "administrativeArea": "CA",
+      "postalCode": "94105",
+      "country": "US",
+      "email": "test@cybs.com",
+      "phoneNumber": "4158880000"
     }
+  },
+  "tokenInformation": {
+    "transientTokenJwt": "[PLACE YOUR FLEX TOKEN HERE]"
   }
 }
+
 
 ```
 

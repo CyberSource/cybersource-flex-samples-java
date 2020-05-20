@@ -41,12 +41,11 @@
             <artifactId>javax.servlet.jsp-api</artifactId>
             <version>2.3.1</version>
             <scope>provided</scope>
-        </dependency>
-        
+        </dependency>        
         <dependency>
             <groupId>com.cybersource</groupId>
-            <artifactId>flex-server-sdk</artifactId>
-            <version>0.3.0</version>
+            <artifactId>cybersource-rest-client-java</artifactId>
+            <version>0.0.22</version>
         </dependency>
     </dependencies>
 </project>

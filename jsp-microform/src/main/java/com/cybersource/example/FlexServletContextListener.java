@@ -14,18 +14,11 @@ import javax.servlet.annotation.WebListener;
 public class FlexServletContextListener implements ServletContextListener {
 
     public void contextInitialized(ServletContextEvent sce) {
-        InputStream configurationProperties = null;
         try {
-            configurationProperties = sce.getServletContext().getResourceAsStream("/WEB-INF/credentials.properties");
-            FlexKeyProvider fkp = new FlexKeyProvider(configurationProperties);
+            FlexKeyProvider fkp = new FlexKeyProvider();
             sce.getServletContext().setAttribute(FlexKeyProvider.class.getName(), fkp);
         } finally {
-            if (configurationProperties != null) {
-                try {
-                    configurationProperties.close();
-                } catch (IOException e) {
-                }
-            }
+            
         }
     }
 
