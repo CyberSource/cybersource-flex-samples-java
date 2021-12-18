@@ -45,7 +45,7 @@
         <dependency>
             <groupId>com.cybersource</groupId>
             <artifactId>cybersource-rest-client-java</artifactId>
-            <version>0.0.22</version>
+            <version>0.0.39</version>
         </dependency>
     </dependencies>
 </project>
