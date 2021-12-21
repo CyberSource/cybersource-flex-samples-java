@@ -52,7 +52,7 @@ public class FlexKeyProvider {
                 
             KeyGenerationApi keyGenerationApi = new KeyGenerationApi(apiClient);
 
-            FlexV1KeysPost200Response response = keyGenerationApi.generatePublicKey(request, "JWT");
+            FlexV1KeysPost200Response response = keyGenerationApi.generatePublicKey("JWT", request);
             System.out.println("Response :" +response);
 
             String responseCode = apiClient.responseCode;
