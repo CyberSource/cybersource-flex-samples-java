@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Token</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" th:href="${bootstrapVersion}"
+          integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+
+    <style>
+        .td-1 {
+            word-break: break-all;
+            word-wrap: break-word;
+        }
+    </style>
+</head>
+
+<body>
+<nav class="navbar navbar-expand-md navbar-dark sticky-top bg-dark">
+    <a class="navbar-brand" href="/">Flex Microform</a>
+</nav>
+<main role="main" class="container">
+    <div class="py-5 text-center">
+        <h2>Successfully Received Transient Token</h2>
+        <p class="lead">
+            Microform returned a transient token which you can use to process payment for the customer's order.
+        </p>
+    </div>
+    <form th:action="@{/receipt}"
+          method="post">
+        <button class="btn btn-primary" type="submit">Process Payment with Transient Token</button>
+    </form>
+    <form>
+        <div class="form-group">
+            <label for="ta1">JWT-encoded Transient Token:</label>
+            <textarea class="form-control" id="ta1" name="captureContext" rows="10" th:text="${encodedTransientToken}"></textarea>
+            <br/>
+            <label for="ta2">Decoded Transient Token:</label>
+            <textarea class="form-control" id="ta2" name="captureContext" rows="20" th:text="${decodedTransientToken}"></textarea>
+        </div>
+    </form>
+</main>
+</body>

@@ -5,18 +5,14 @@ This repository provides simple examples demonstrating usage of the CyberSource 
 ## Usage
 
 1. Clone or download this repository.
-2. Run ```mvn package``` in the sample you want to try (jsp-microform or jsp-flexjs).
-3. Copy the output WAR file to your web server directory. E.g.
-````
-cp ./target/jsp-microform-1.0.war /usr/local/apache-tomcat-9.0.13/webapps/.
-````
-4. Browse to the checkout page.  E.g. http://localhost:8080/jsp-microform-1.0
+2. Follow the application-specific directions to package and run either [jsp-flexjs](./jsp-flexjs/README.md) or [spring-microform](./spring-microform/README.md)
+3. Browse to the checkout page.  E.g. http://localhost:8080/jsp-microform-1.0 (Flex API) or http://localhost:8080 (Microform) 
 
 ## Requirements
 * Java 1.8 or later 
 * Tomcat web server
 
-**_NOTE: We also have samples for Flex available in .NET, PHP & Node.js _**
+**NOTE: We also have samples for Flex available in .NET, PHP & Node.js**
 
 ## API Reference
 While these examples use the JavaScript libraries which we recommend as the most convenient option, you can try out the APIs behind the JavaScript SDKs by visiting our API Reference at https://developer.cybersource.com/api-reference-assets/index.html#flex
@@ -24,26 +20,21 @@ While these examples use the JavaScript libraries which we recommend as the most
 
 ## Setting Your API Credentials
 
-To set your API credentials for an API request, configure the following information in  src/main/java/com/cybersource/example/MerchantCredentials.java file:
+To set your API credentials for an API request, configure the following information:
   
-  * Http Signature
+* [Flex API](./jsp-flexjs/src/main/webapp/WEB-INF/credentials.properties)
+  ```properties
+  merchantID = your_merchant_id
+  keyId = your_key_serial_number
+  sharedSecret = your_key_shared_secret
+  ```
+* Microform (./spring-microform/src/main/resources/application-local.properties not checked into source control for security)
 
-```java
-   authenticationType  = http_Signature
-   merchantID 	       = your_merchant_id
-   merchantKeyId       = your_key_serial_number
-   merchantsecretKey   = your_key_shared_secret
-```
-  * Jwt
-
-```java
-   authenticationType  = Jwt
-   merchantID 	       = your_merchant_id
-   keyAlias	       = your_merchant_id
-   keyPassword	       = your_merchant_id
-   keyFileName         = your_merchant_id
-   keysDirectory       = resources
-```
+  ```properties
+  app.merchantID= your_merchant_id
+  app.merchantKeyId= your_key_serial_number
+  app.merchantSecretKey= your_key_shared_secret
+  ```
 
 ## Background on PCI-DSS
 
@@ -65,7 +56,7 @@ This sample demonstrates how your checkout form can remain exactly as it is toda
 
 ### Microform Sample
 
-This sample demonstrates how you can replace the sensitive data fields (credit card number) on your checkout form with a field (Flex Microform) hosted entirely on CyberSource servers. This field will accept and tokenize the customer's credit card information directly from their browser on a resource hosted by CyberSource, replacing that data with a secure PCI-compliant token. This can then be sent to your server along with the other non-PCI order data.  This can help achieve PCI-DSS SAQ A level compliance for your application as even your client-side code does not contain a mechanism to handle the credit card information.
+This sample demonstrates how you can replace the sensitive data fields (credit card number) on your checkout form with a field (Flex Microform) hosted entirely on CyberSource servers. This field will accept and tokenize the customer's credit card information directly from their browser on a resource hosted by CyberSource, replacing that data with a secure PCI-compliant token. This can then be sent to your server along with the other non-PCI order data.  This can help achieve PCI-DSS SAQ-A level compliance for your application as even your client-side code does not contain a mechanism to handle the credit card information.
 
 ## Using the Flex Payment Token
 

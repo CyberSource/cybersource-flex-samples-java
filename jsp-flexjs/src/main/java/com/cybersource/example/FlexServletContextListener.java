@@ -4,11 +4,11 @@
  */
 package com.cybersource.example;
 
-import java.io.IOException;
-import java.io.InputStream;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
+import java.io.IOException;
+import java.io.InputStream;
 
 @WebListener
 public class FlexServletContextListener implements ServletContextListener {

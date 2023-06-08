@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" th:href="${bootstrapVersion}"
+          integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <title>Capture Context</title>
+</head>
+
+<body>
+<nav class="navbar navbar-expand-md navbar-dark sticky-top bg-dark">
+    <a class="navbar-brand" href="/">Flex Microform</a>
+</nav>
+
+<main role="main" class="container">
+    <div class="py-5 text-center">
+        <h2>Capture Context Request Success</h2>
+        <p class="lead">
+            Your request returned the Capture Context encoded as JWT.
+            This JWT contains all of the information to start Microform on your checkout page.
+            There is a JavaScript URL, SRI hash, and more, all cryptographically signed by Visa.
+        </p>
+    </div>
+    <form th:action="@{/checkout}"
+          method="post">
+        <button class="btn btn-primary" type="submit">Launch checkout page</button>
+        <br/>
+        <div class="form-group">
+            <label for="ta1">Capture Context encoded as JWT:</label>
+            <textarea class="form-control" id="ta1" name="captureContext" rows="17" th:text="${captureContextJwt}"></textarea>
+            <br/>
+            <label for="ta2">Decoded capture context:</label>
+            <textarea class="form-control" id="ta2" name="captureContext" rows="20" th:text="${decodedBody}"></textarea>
+        </div>
+    </form>
+</main>
+</body>
+</html>
