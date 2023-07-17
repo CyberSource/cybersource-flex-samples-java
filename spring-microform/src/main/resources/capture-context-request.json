@@ -1,0 +1,5 @@
+{
+  "targetOrigins": ["http://localhost:8080"],
+  "allowedCardNetworks": ["VISA", "MASTERCARD", "AMEX"],
+  "clientVersion": "v2"
+}

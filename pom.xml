@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.cybersource.examples.flex</groupId>
+    <artifactId>cybersource-flex-samples</artifactId>
+    <version>1.0</version>
+    <packaging>pom</packaging>
+
+    <name>Flex Samples</name>
+    <description>An out-of-the-box application to run Flex Microform or Flex API locally</description>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.7.8</version>
+    </parent>
+    <modules>
+        <module>jsp-flexjs</module>
+        <module>spring-microform</module>
+    </modules>
+</project>

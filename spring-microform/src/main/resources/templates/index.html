@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Sample Checkout</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" th:href="${bootstrapVersion}"
+          integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-expand-md navbar-dark sticky-top bg-dark">
+    <a class="navbar-brand" href="/">Flex Microform</a>
+</nav>
+<main role="main" class="container">
+    <div class="py-5 text-center">
+        <h2>Request Capture Context</h2>
+        <p class="lead">
+            Once you are ready to render your checkout page or "pay now" button, you need to request the Capture Context
+            from Microform. The capture context request shown below drives Microform's behavior, including accepted card networks,
+            the website(s) where the JavaScript library will be hosted (which acts as a security function), and the
+            version of Microform you're requesting. Once sent to CyberSource, it will produce JWT that can be used to initialize Microform.
+        </p>
+    </div>
+
+    <form th:action="@{/capture-context}" method="post">
+        <button type="submit" class="btn btn-primary">Generate Capture Context</button>
+        <p/>
+        <div class="form-group">
+            <label for="ta1">Capture Context Request payload. You can change the request parameters by editing the
+                values below:</label>
+            <textarea class="form-control" id="ta1" name="captureContextRequest" th:attr="rows=${requestLineCount}"
+                      th:text="${requestJson}"></textarea>
+        </div>
+    </form>
+</main>
+</body>
+</html>

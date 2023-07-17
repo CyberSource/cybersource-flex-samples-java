@@ -4,7 +4,6 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.cybersource.examples.flex</groupId>
     <artifactId>jsp-flexjs</artifactId>
     <version>1.0</version> <!-- This example relates to Flex-API BETA v1 -->
     <packaging>war</packaging>
@@ -13,10 +12,16 @@
     <description>A mocked merchant checkout and payment page using Flex JS tokenization</description>
     <url>https://github.com/CyberSource/cybersource-flex-samples/java/jsp-flexjs</url>
 
+    <parent>
+        <groupId>com.cybersource.examples.flex</groupId>
+        <artifactId>cybersource-flex-samples</artifactId>
+        <version>1.0</version>
+    </parent>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>1.6</maven.compiler.source>
-        <maven.compiler.target>1.6</maven.compiler.target>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
     </properties>
 
     <build>
