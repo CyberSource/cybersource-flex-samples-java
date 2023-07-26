@@ -19,7 +19,23 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
     </properties>
-    
+
+    <build>
+        <plugins>
+            <!-- Plugin needed to deploy to Google Cloud -->
+            <plugin>
+                <groupId>com.google.cloud.tools</groupId>
+                <artifactId>appengine-maven-plugin</artifactId>
+                <version>2.4.0</version>
+                <configuration>
+                    <projectId>flex-v2-java-direct-use-sample</projectId>
+                    <version>3</version>
+                    <artifact>${project.build.directory}/flex-direct-gae-1.0.3-runner.jar</artifact>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
