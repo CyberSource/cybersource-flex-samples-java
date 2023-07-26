@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <title>Unified Payments Demo no. 1</title>
+</head>
+
+<body>
+<nav class="navbar navbar-expand-md navbar-dark sticky-top bg-dark">
+    <a class="navbar-brand" href="/">Unified Payment</a>
+</nav>
+
+<main class="container" role="main">
+    <div class="py-5 text-center">
+        <h2>Capture data</h2>
+        <p class="lead">
+            Payload to be encrypted was generated using Capture Context contained definition of payload structure.
+            With Flex Direct API you're in control what untrusted device can send to 
+        </p>
+    </div>
+
+    <form action="/forms/encrypt-data" method="post">
+        <textarea class="form-control" name="capture-context" rows="5">{captureContext}</textarea><br>
+        <textarea class="form-control" name="data" rows="12">{data}</textarea>
+        <div>
+            <p>Please try <mark>4444333322221111</mark> as card number and <mark>001</mark> as card type.</p>
+        </div>
+        <button class="btn btn-success" type="submit">Encrypt data</button>
+        <a class="btn btn-primary" href="/">Home</a>
+    </form>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+</body>
+</html>

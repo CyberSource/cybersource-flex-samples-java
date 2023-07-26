@@ -10,13 +10,10 @@
 
     <name>Flex Samples</name>
     <description>An out-of-the-box application to run Flex Microform or Flex API locally</description>
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.7.8</version>
-    </parent>
+
     <modules>
         <module>jsp-flexjs</module>
         <module>spring-microform</module>
+        <module>flex-v2-direct</module>
     </modules>
 </project>

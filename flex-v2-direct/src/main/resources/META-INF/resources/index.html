@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <title>Flex Direct Demo</title>
+</head>
+
+<body>
+<nav class="navbar navbar-expand-md navbar-dark sticky-top bg-dark">
+    <a class="navbar-brand" href="/">Flex API Direct Use Demo</a>
+</nav>
+
+<main class="container" role="main">
+    <div class="py-5 text-center">
+        <h2>Express intent</h2>
+        <p class="lead">
+            Every Flex Direct API transaction starts with merchant sending Capture Context Request to Flex API "create session" endpoint.
+            This page allows merchant to express intent in regard to the scope of data captured.
+            Controls below drive generation of "Capture Context Request" JSON payload and visualize Flex Direct API capture capabilities.
+        </p>
+    </div>
+
+    <form action="/forms/create-capture-context-request" method="post">
+        <button class="btn btn-success" type="submit">Create Capture Context Request</button>
+
+        <h4>Payment Credentials</h4>
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Field</th>
+                <th scope="col">Options</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>paymentInformation.card.number</td>
+                <td>
+                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                        <input type="radio" class="btn-check" name="paymentInformation.card.number" id="paymentInformation.card.number.1" autocomplete="off" value="off">
+                        <label class="btn btn-outline-primary" for="paymentInformation.card.number.1">Off</label>
+
+                        <input type="radio" class="btn-check" name="paymentInformation.card.number" id="paymentInformation.card.number.2" autocomplete="off" value="required" checked>
+                        <label class="btn btn-outline-primary" for="paymentInformation.card.number.2">Required</label>
+
+                        <input type="radio" class="btn-check" name="paymentInformation.card.number" id="paymentInformation.card.number.3" autocomplete="off" value="optional">
+                        <label class="btn btn-outline-primary" for="paymentInformation.card.number.3">Optional</label>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>paymentInformation.card.securityCode</td>
+                <td>
+                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                        <input type="radio" class="btn-check" name="paymentInformation.card.securityCode" id="paymentInformation.card.securityCode.1" autocomplete="off" value="off">
+                        <label class="btn btn-outline-primary" for="paymentInformation.card.securityCode.1">Off</label>
+
+                        <input type="radio" class="btn-check" name="paymentInformation.card.securityCode" id="paymentInformation.card.securityCode.2" autocomplete="off" value="required">
+                        <label class="btn btn-outline-primary" for="paymentInformation.card.securityCode.2">Required</label>
+
+                        <input type="radio" class="btn-check" name="paymentInformation.card.securityCode" id="paymentInformation.card.securityCode.3" autocomplete="off" value="optional" checked>
+                        <label class="btn btn-outline-primary" for="paymentInformation.card.securityCode.3">Optional</label>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td>paymentInformation.card.expirationMonth</td>
+                <td>
+                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                        <input type="radio" class="btn-check" name="paymentInformation.card.expirationMonth" id="paymentInformation.card.expirationMonth.1" autocomplete="off" value="off" checked>
+                        <label class="btn btn-outline-primary" for="paymentInformation.card.expirationMonth.1">Off</label>
+
+                        <input type="radio" class="btn-check" name="paymentInformation.card.expirationMonth" id="paymentInformation.card.expirationMonth.2" autocomplete="off" value="required">
+                        <label class="btn btn-outline-primary" for="paymentInformation.card.expirationMonth.2">Required</label>
+
+                        <input type="radio" class="btn-check" name="paymentInformation.card.expirationMonth" id="paymentInformation.card.expirationMonth.3" autocomplete="off" value="optional">
+                        <label class="btn btn-outline-primary" for="paymentInformation.card.expirationMonth.3">Optional</label>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">4</th>
+                <td>paymentInformation.card.expirationYear</td>
+                <td>
+                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                        <input type="radio" class="btn-check" name="paymentInformation.card.expirationYear" id="paymentInformation.card.expirationYear.1" autocomplete="off" value="off" checked>
+                        <label class="btn btn-outline-primary" for="paymentInformation.card.expirationYear.1">Off</label>
+
+                        <input type="radio" class="btn-check" name="paymentInformation.card.expirationYear" id="paymentInformation.card.expirationYear.2" autocomplete="off" value="required">
+                        <label class="btn btn-outline-primary" for="paymentInformation.card.expirationYear.2">Required</label>
+
+                        <input type="radio" class="btn-check" name="paymentInformation.card.expirationYear" id="paymentInformation.card.expirationYear.3" autocomplete="off" value="optional">
+                        <label class="btn btn-outline-primary" for="paymentInformation.card.expirationYear.3">Optional</label>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">5</th>
+                <td>paymentInformation.card.type</td>
+                <td>
+                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                        <input type="radio" class="btn-check" name="paymentInformation.card.type" id="paymentInformation.card.type.1" autocomplete="off" value="off">
+                        <label class="btn btn-outline-primary" for="paymentInformation.card.type.1">Off</label>
+
+                        <input type="radio" class="btn-check" name="paymentInformation.card.type" id="paymentInformation.card.type.2" autocomplete="off" value="required" checked>
+                        <label class="btn btn-outline-primary" for="paymentInformation.card.type.2">Required</label>
+
+                        <input type="radio" class="btn-check" name="paymentInformation.card.type" id="paymentInformation.card.type.3" autocomplete="off" value="optional">
+                        <label class="btn btn-outline-primary" for="paymentInformation.card.type.3">Optional</label>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <h4>Amount and Currency</h4>
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Field</th>
+                <th scope="col">Options</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>orderInformation.amountDetails.totalAmount</td>
+                <td>
+                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                        <input type="radio" class="btn-check" name="orderInformation.amountDetails.totalAmount" id="orderInformation.amountDetails.totalAmount.1" autocomplete="off" value="off" checked>
+                        <label class="btn btn-outline-primary" for="orderInformation.amountDetails.totalAmount.1">Off</label>
+
+                        <input type="radio" class="btn-check" name="orderInformation.amountDetails.totalAmount" id="orderInformation.amountDetails.totalAmount.2" autocomplete="off" value="required">
+                        <label class="btn btn-outline-primary" for="orderInformation.amountDetails.totalAmount.2">Required</label>
+
+                        <input type="radio" class="btn-check" name="orderInformation.amountDetails.totalAmount" id="orderInformation.amountDetails.totalAmount.3" autocomplete="off" value="optional">
+                        <label class="btn btn-outline-primary" for="orderInformation.amountDetails.totalAmount.3">Optional</label>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>orderInformation.amountDetails.currency</td>
+                <td>
+                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                        <input type="radio" class="btn-check" name="orderInformation.amountDetails.currency" id="orderInformation.amountDetails.currency.1" autocomplete="off" value="off" checked>
+                        <label class="btn btn-outline-primary" for="orderInformation.amountDetails.currency.1">Off</label>
+
+                        <input type="radio" class="btn-check" name="orderInformation.amountDetails.currency" id="orderInformation.amountDetails.currency.2" autocomplete="off" value="required">
+                        <label class="btn btn-outline-primary" for="orderInformation.amountDetails.currency.2">Required</label>
+
+                        <input type="radio" class="btn-check" name="orderInformation.amountDetails.currency" id="orderInformation.amountDetails.currency.3" autocomplete="off" value="optional">
+                        <label class="btn btn-outline-primary" for="orderInformation.amountDetails.currency.3">Optional</label>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <h4>Billing Address</h4>
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Field</th>
+                <th scope="col">Options</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>orderInformation.billTo.address1</td>
+                <td>
+                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                        <input type="radio" class="btn-check" name="orderInformation.billTo.address1" id="orderInformation.billTo.address1.1" autocomplete="off" value="off" checked>
+                        <label class="btn btn-outline-primary" for="orderInformation.billTo.address1.1">Off</label>
+
+                        <input type="radio" class="btn-check" name="orderInformation.billTo.address1" id="orderInformation.billTo.address1.2" autocomplete="off" value="required">
+                        <label class="btn btn-outline-primary" for="orderInformation.billTo.address1.2">Required</label>
+
+                        <input type="radio" class="btn-check" name="orderInformation.billTo.address1" id="orderInformation.billTo.address1.3" autocomplete="off" value="optional">
+                        <label class="btn btn-outline-primary" for="orderInformation.billTo.address1.3">Optional</label>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>orderInformation.billTo.address2</td>
+                <td>
+                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                        <input type="radio" class="btn-check" name="orderInformation.billTo.address2" id="orderInformation.billTo.address2.1" autocomplete="off" value="off" checked>
+                        <label class="btn btn-outline-primary" for="orderInformation.billTo.address2.1">Off</label>
+
+                        <input type="radio" class="btn-check" name="orderInformation.billTo.address2" id="orderInformation.billTo.address2.2" autocomplete="off" value="required">
+                        <label class="btn btn-outline-primary" for="orderInformation.billTo.address2.2">Required</label>
+
+                        <input type="radio" class="btn-check" name="orderInformation.billTo.address2" id="orderInformation.billTo.address2.3" autocomplete="off" value="optional">
+                        <label class="btn btn-outline-primary" for="orderInformation.billTo.address2.3">Optional</label>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td>orderInformation.billTo.administrativeArea</td>
+                <td>
+                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                        <input type="radio" class="btn-check" name="orderInformation.billTo.administrativeArea" id="orderInformation.billTo.administrativeArea.1" autocomplete="off" value="off" checked>
+                        <label class="btn btn-outline-primary" for="orderInformation.billTo.administrativeArea.1">Off</label>
+
+                        <input type="radio" class="btn-check" name="orderInformation.billTo.administrativeArea" id="orderInformation.billTo.administrativeArea.2" autocomplete="off" value="required">
+                        <label class="btn btn-outline-primary" for="orderInformation.billTo.administrativeArea.2">Required</label>
+
+                        <input type="radio" class="btn-check" name="orderInformation.billTo.administrativeArea" id="orderInformation.billTo.administrativeArea.3" autocomplete="off" value="optional">
+                        <label class="btn btn-outline-primary" for="orderInformation.billTo.administrativeArea.3">Optional</label>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">4</th>
+                <td>orderInformation.billTo.buildingNumber</td>
+                <td>
+                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                        <input type="radio" class="btn-check" name="orderInformation.billTo.buildingNumber" id="orderInformation.billTo.buildingNumber.1" autocomplete="off" value="off" checked>
+                        <label class="btn btn-outline-primary" for="orderInformation.billTo.buildingNumber.1">Off</label>
+
+                        <input type="radio" class="btn-check" name="orderInformation.billTo.buildingNumber" id="orderInformation.billTo.buildingNumber.2" autocomplete="off" value="required">
+                        <label class="btn btn-outline-primary" for="orderInformation.billTo.buildingNumber.2">Required</label>
+
+                        <input type="radio" class="btn-check" name="orderInformation.billTo.buildingNumber" id="orderInformation.billTo.buildingNumber.3" autocomplete="off" value="optional">
+                        <label class="btn btn-outline-primary" for="orderInformation.billTo.buildingNumber.3">Optional</label>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">5</th>
+                <td>orderInformation.billTo.country</td>
+                <td>
+                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                        <input type="radio" class="btn-check" name="orderInformation.billTo.country" id="orderInformation.billTo.country.1" autocomplete="off" value="off" checked>
+                        <label class="btn btn-outline-primary" for="orderInformation.billTo.country.1">Off</label>
+
+                        <input type="radio" class="btn-check" name="orderInformation.billTo.country" id="orderInformation.billTo.country.2" autocomplete="off" value="required">
+                        <label class="btn btn-outline-primary" for="orderInformation.billTo.country.2">Required</label>
+
+                        <input type="radio" class="btn-check" name="orderInformation.billTo.country" id="orderInformation.billTo.country.3" autocomplete="off" value="optional">
+                        <label class="btn btn-outline-primary" for="orderInformation.billTo.country.3">Optional</label>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">6</th>
+                <td>orderInformation.billTo.district</td>
+                <td>
+                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                        <input type="radio" class="btn-check" name="orderInformation.billTo.district" id="orderInformation.billTo.district.1" autocomplete="off" value="off" checked>
+                        <label class="btn btn-outline-primary" for="orderInformation.billTo.district.1">Off</label>
+
+                        <input type="radio" class="btn-check" name="orderInformation.billTo.district" id="orderInformation.billTo.district.2" autocomplete="off" value="required">
+                        <label class="btn btn-outline-primary" for="orderInformation.billTo.district.2">Required</label>
+
+                        <input type="radio" class="btn-check" name="orderInformation.billTo.district" id="orderInformation.billTo.district.3" autocomplete="off" value="optional">
+                        <label class="btn btn-outline-primary" for="orderInformation.billTo.district.3">Optional</label>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">7</th>
+                <td>orderInformation.billTo.locality</td>
+                <td>
+                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                        <input type="radio" class="btn-check" name="orderInformation.billTo.locality" id="orderInformation.billTo.locality.1" autocomplete="off" value="off" checked>
+                        <label class="btn btn-outline-primary" for="orderInformation.billTo.locality.1">Off</label>
+
+                        <input type="radio" class="btn-check" name="orderInformation.billTo.locality" id="orderInformation.billTo.locality.2" autocomplete="off" value="required">
+                        <label class="btn btn-outline-primary" for="orderInformation.billTo.locality.2">Required</label>
+
+                        <input type="radio" class="btn-check" name="orderInformation.billTo.locality" id="orderInformation.billTo.locality.3" autocomplete="off" value="optional">
+                        <label class="btn btn-outline-primary" for="orderInformation.billTo.locality.3">Optional</label>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">8</th>
+                <td>orderInformation.billTo.postalCode</td>
+                <td>
+                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                        <input type="radio" class="btn-check" name="orderInformation.billTo.postalCode" id="orderInformation.billTo.postalCode.1" autocomplete="off" value="off" checked>
+                        <label class="btn btn-outline-primary" for="orderInformation.billTo.postalCode.1">Off</label>
+
+                        <input type="radio" class="btn-check" name="orderInformation.billTo.postalCode" id="orderInformation.billTo.postalCode.2" autocomplete="off" value="required">
+                        <label class="btn btn-outline-primary" for="orderInformation.billTo.postalCode.2">Required</label>
+
+                        <input type="radio" class="btn-check" name="orderInformation.billTo.postalCode" id="orderInformation.billTo.postalCode.3" autocomplete="off" value="optional">
+                        <label class="btn btn-outline-primary" for="orderInformation.billTo.postalCode.3">Optional</label>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">9</th>
+                <td>orderInformation.billTo.email</td>
+                <td>
+                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                        <input type="radio" class="btn-check" name="orderInformation.billTo.email" id="orderInformation.billTo.email.1" autocomplete="off" value="off" checked>
+                        <label class="btn btn-outline-primary" for="orderInformation.billTo.email.1">Off</label>
+
+                        <input type="radio" class="btn-check" name="orderInformation.billTo.email" id="orderInformation.billTo.email.2" autocomplete="off" value="required">
+                        <label class="btn btn-outline-primary" for="orderInformation.billTo.email.2">Required</label>
+
+                        <input type="radio" class="btn-check" name="orderInformation.billTo.email" id="orderInformation.billTo.email.3" autocomplete="off" value="optional">
+                        <label class="btn btn-outline-primary" for="orderInformation.billTo.email.3">Optional</label>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">10</th>
+                <td>orderInformation.billTo.firstName</td>
+                <td>
+                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                        <input type="radio" class="btn-check" name="orderInformation.billTo.firstName" id="orderInformation.billTo.firstName.1" autocomplete="off" value="off" checked>
+                        <label class="btn btn-outline-primary" for="orderInformation.billTo.firstName.1">Off</label>
+
+                        <input type="radio" class="btn-check" name="orderInformation.billTo.firstName" id="orderInformation.billTo.firstName.2" autocomplete="off" value="required">
+                        <label class="btn btn-outline-primary" for="orderInformation.billTo.firstName.2">Required</label>
+
+                        <input type="radio" class="btn-check" name="orderInformation.billTo.firstName" id="orderInformation.billTo.firstName.3" autocomplete="off" value="optional">
+                        <label class="btn btn-outline-primary" for="orderInformation.billTo.firstName.3">Optional</label>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">11</th>
+                <td>orderInformation.billTo.lastName</td>
+                <td>
+                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                        <input type="radio" class="btn-check" name="orderInformation.billTo.lastName" id="orderInformation.billTo.lastName.1" autocomplete="off" value="off" checked>
+                        <label class="btn btn-outline-primary" for="orderInformation.billTo.lastName.1">Off</label>
+
+                        <input type="radio" class="btn-check" name="orderInformation.billTo.lastName" id="orderInformation.billTo.lastName.2" autocomplete="off" value="required">
+                        <label class="btn btn-outline-primary" for="orderInformation.billTo.lastName.2">Required</label>
+
+                        <input type="radio" class="btn-check" name="orderInformation.billTo.lastName" id="orderInformation.billTo.lastName.3" autocomplete="off" value="optional">
+                        <label class="btn btn-outline-primary" for="orderInformation.billTo.lastName.3">Optional</label>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">12</th>
+                <td>orderInformation.billTo.phoneNumber</td>
+                <td>
+                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                        <input type="radio" class="btn-check" name="orderInformation.billTo.phoneNumber" id="orderInformation.billTo.phoneNumber.1" autocomplete="off" value="off" checked>
+                        <label class="btn btn-outline-primary" for="orderInformation.billTo.phoneNumber.1">Off</label>
+
+                        <input type="radio" class="btn-check" name="orderInformation.billTo.phoneNumber" id="orderInformation.billTo.phoneNumber.2" autocomplete="off" value="required">
+                        <label class="btn btn-outline-primary" for="orderInformation.billTo.phoneNumber.2">Required</label>
+
+                        <input type="radio" class="btn-check" name="orderInformation.billTo.phoneNumber" id="orderInformation.billTo.phoneNumber.3" autocomplete="off" value="optional">
+                        <label class="btn btn-outline-primary" for="orderInformation.billTo.phoneNumber.3">Optional</label>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">13</th>
+                <td>orderInformation.billTo.company</td>
+                <td>
+                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                        <input type="radio" class="btn-check" name="orderInformation.billTo.company" id="orderInformation.billTo.company.1" autocomplete="off" value="off" checked>
+                        <label class="btn btn-outline-primary" for="orderInformation.billTo.company.1">Off</label>
+
+                        <input type="radio" class="btn-check" name="orderInformation.billTo.company" id="orderInformation.billTo.company.2" autocomplete="off" value="required">
+                        <label class="btn btn-outline-primary" for="orderInformation.billTo.company.2">Required</label>
+
+                        <input type="radio" class="btn-check" name="orderInformation.billTo.company" id="orderInformation.billTo.company.3" autocomplete="off" value="optional">
+                        <label class="btn btn-outline-primary" for="orderInformation.billTo.company.3">Optional</label>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <h4>Shipping Address</h4>
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Field</th>
+                <th scope="col">Options</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>orderInformation.shipTo.address1</td>
+                <td>
+                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                        <input type="radio" class="btn-check" name="orderInformation.shipTo.address1" id="orderInformation.shipTo.address1.1" autocomplete="off" value="off" checked>
+                        <label class="btn btn-outline-primary" for="orderInformation.shipTo.address1.1">Off</label>
+
+                        <input type="radio" class="btn-check" name="orderInformation.shipTo.address1" id="orderInformation.shipTo.address1.2" autocomplete="off" value="required">
+                        <label class="btn btn-outline-primary" for="orderInformation.shipTo.address1.2">Required</label>
+
+                        <input type="radio" class="btn-check" name="orderInformation.shipTo.address1" id="orderInformation.shipTo.address1.3" autocomplete="off" value="optional">
+                        <label class="btn btn-outline-primary" for="orderInformation.shipTo.address1.3">Optional</label>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>orderInformation.shipTo.address2</td>
+                <td>
+                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                        <input type="radio" class="btn-check" name="orderInformation.shipTo.address2" id="orderInformation.shipTo.address2.1" autocomplete="off" value="off" checked>
+                        <label class="btn btn-outline-primary" for="orderInformation.shipTo.address2.1">Off</label>
+
+                        <input type="radio" class="btn-check" name="orderInformation.shipTo.address2" id="orderInformation.shipTo.address2.2" autocomplete="off" value="required">
+                        <label class="btn btn-outline-primary" for="orderInformation.shipTo.address2.2">Required</label>
+
+                        <input type="radio" class="btn-check" name="orderInformation.shipTo.address2" id="orderInformation.shipTo.address2.3" autocomplete="off" value="optional">
+                        <label class="btn btn-outline-primary" for="orderInformation.shipTo.address2.3">Optional</label>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td>orderInformation.shipTo.administrativeArea</td>
+                <td>
+                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                        <input type="radio" class="btn-check" name="orderInformation.shipTo.administrativeArea" id="orderInformation.shipTo.administrativeArea.1" autocomplete="off" value="off" checked>
+                        <label class="btn btn-outline-primary" for="orderInformation.shipTo.administrativeArea.1">Off</label>
+
+                        <input type="radio" class="btn-check" name="orderInformation.shipTo.administrativeArea" id="orderInformation.shipTo.administrativeArea.2" autocomplete="off" value="required">
+                        <label class="btn btn-outline-primary" for="orderInformation.shipTo.administrativeArea.2">Required</label>
+
+                        <input type="radio" class="btn-check" name="orderInformation.shipTo.administrativeArea" id="orderInformation.shipTo.administrativeArea.3" autocomplete="off" value="optional">
+                        <label class="btn btn-outline-primary" for="orderInformation.shipTo.administrativeArea.3">Optional</label>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">4</th>
+                <td>orderInformation.shipTo.buildingNumber</td>
+                <td>
+                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                        <input type="radio" class="btn-check" name="orderInformation.shipTo.buildingNumber" id="orderInformation.shipTo.buildingNumber.1" autocomplete="off" value="off" checked>
+                        <label class="btn btn-outline-primary" for="orderInformation.shipTo.buildingNumber.1">Off</label>
+
+                        <input type="radio" class="btn-check" name="orderInformation.shipTo.buildingNumber" id="orderInformation.shipTo.buildingNumber.2" autocomplete="off" value="required">
+                        <label class="btn btn-outline-primary" for="orderInformation.shipTo.buildingNumber.2">Required</label>
+
+                        <input type="radio" class="btn-check" name="orderInformation.shipTo.buildingNumber" id="orderInformation.shipTo.buildingNumber.3" autocomplete="off" value="optional">
+                        <label class="btn btn-outline-primary" for="orderInformation.shipTo.buildingNumber.3">Optional</label>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">5</th>
+                <td>orderInformation.shipTo.country</td>
+                <td>
+                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                        <input type="radio" class="btn-check" name="orderInformation.shipTo.country" id="orderInformation.shipTo.country.1" autocomplete="off" value="off" checked>
+                        <label class="btn btn-outline-primary" for="orderInformation.shipTo.country.1">Off</label>
+
+                        <input type="radio" class="btn-check" name="orderInformation.shipTo.country" id="orderInformation.shipTo.country.2" autocomplete="off" value="required">
+                        <label class="btn btn-outline-primary" for="orderInformation.shipTo.country.2">Required</label>
+
+                        <input type="radio" class="btn-check" name="orderInformation.shipTo.country" id="orderInformation.shipTo.country.3" autocomplete="off" value="optional">
+                        <label class="btn btn-outline-primary" for="orderInformation.shipTo.country.3">Optional</label>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">6</th>
+                <td>orderInformation.shipTo.district</td>
+                <td>
+                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                        <input type="radio" class="btn-check" name="orderInformation.shipTo.district" id="orderInformation.shipTo.district.1" autocomplete="off" value="off" checked>
+                        <label class="btn btn-outline-primary" for="orderInformation.shipTo.district.1">Off</label>
+
+                        <input type="radio" class="btn-check" name="orderInformation.shipTo.district" id="orderInformation.shipTo.district.2" autocomplete="off" value="required">
+                        <label class="btn btn-outline-primary" for="orderInformation.shipTo.district.2">Required</label>
+
+                        <input type="radio" class="btn-check" name="orderInformation.shipTo.district" id="orderInformation.shipTo.district.3" autocomplete="off" value="optional">
+                        <label class="btn btn-outline-primary" for="orderInformation.shipTo.district.3">Optional</label>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">7</th>
+                <td>orderInformation.shipTo.locality</td>
+                <td>
+                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                        <input type="radio" class="btn-check" name="orderInformation.shipTo.locality" id="orderInformation.shipTo.locality.1" autocomplete="off" value="off" checked>
+                        <label class="btn btn-outline-primary" for="orderInformation.shipTo.locality.1">Off</label>
+
+                        <input type="radio" class="btn-check" name="orderInformation.shipTo.locality" id="orderInformation.shipTo.locality.2" autocomplete="off" value="required">
+                        <label class="btn btn-outline-primary" for="orderInformation.shipTo.locality.2">Required</label>
+
+                        <input type="radio" class="btn-check" name="orderInformation.shipTo.locality" id="orderInformation.shipTo.locality.3" autocomplete="off" value="optional">
+                        <label class="btn btn-outline-primary" for="orderInformation.shipTo.locality.3">Optional</label>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">8</th>
+                <td>orderInformation.shipTo.postalCode</td>
+                <td>
+                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                        <input type="radio" class="btn-check" name="orderInformation.shipTo.postalCode" id="orderInformation.shipTo.postalCode.1" autocomplete="off" value="off" checked>
+                        <label class="btn btn-outline-primary" for="orderInformation.shipTo.postalCode.1">Off</label>
+
+                        <input type="radio" class="btn-check" name="orderInformation.shipTo.postalCode" id="orderInformation.shipTo.postalCode.2" autocomplete="off" value="required">
+                        <label class="btn btn-outline-primary" for="orderInformation.shipTo.postalCode.2">Required</label>
+
+                        <input type="radio" class="btn-check" name="orderInformation.shipTo.postalCode" id="orderInformation.shipTo.postalCode.3" autocomplete="off" value="optional">
+                        <label class="btn btn-outline-primary" for="orderInformation.shipTo.postalCode.3">Optional</label>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">9</th>
+                <td>orderInformation.shipTo.firstName</td>
+                <td>
+                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                        <input type="radio" class="btn-check" name="orderInformation.shipTo.firstName" id="orderInformation.shipTo.firstName.1" autocomplete="off" value="off" checked>
+                        <label class="btn btn-outline-primary" for="orderInformation.shipTo.firstName.1">Off</label>
+
+                        <input type="radio" class="btn-check" name="orderInformation.shipTo.firstName" id="orderInformation.shipTo.firstName.2" autocomplete="off" value="required">
+                        <label class="btn btn-outline-primary" for="orderInformation.shipTo.firstName.2">Required</label>
+
+                        <input type="radio" class="btn-check" name="orderInformation.shipTo.firstName" id="orderInformation.shipTo.firstName.3" autocomplete="off" value="optional">
+                        <label class="btn btn-outline-primary" for="orderInformation.shipTo.firstName.3">Optional</label>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">10</th>
+                <td>orderInformation.shipTo.lastName</td>
+                <td>
+                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                        <input type="radio" class="btn-check" name="orderInformation.shipTo.lastName" id="orderInformation.shipTo.lastName.1" autocomplete="off" value="off" checked>
+                        <label class="btn btn-outline-primary" for="orderInformation.shipTo.lastName.1">Off</label>
+
+                        <input type="radio" class="btn-check" name="orderInformation.shipTo.lastName" id="orderInformation.shipTo.lastName.2" autocomplete="off" value="required">
+                        <label class="btn btn-outline-primary" for="orderInformation.shipTo.lastName.2">Required</label>
+
+                        <input type="radio" class="btn-check" name="orderInformation.shipTo.lastName" id="orderInformation.shipTo.lastName.3" autocomplete="off" value="optional">
+                        <label class="btn btn-outline-primary" for="orderInformation.shipTo.lastName.3">Optional</label>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">11</th>
+                <td>orderInformation.shipTo.company</td>
+                <td>
+                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                        <input type="radio" class="btn-check" name="orderInformation.shipTo.company" id="orderInformation.shipTo.company.1" autocomplete="off" value="off" checked>
+                        <label class="btn btn-outline-primary" for="orderInformation.shipTo.company.1">Off</label>
+
+                        <input type="radio" class="btn-check" name="orderInformation.shipTo.company" id="orderInformation.shipTo.company.2" autocomplete="off" value="required">
+                        <label class="btn btn-outline-primary" for="orderInformation.shipTo.company.2">Required</label>
+
+                        <input type="radio" class="btn-check" name="orderInformation.shipTo.company" id="orderInformation.shipTo.company.3" autocomplete="off" value="optional">
+                        <label class="btn btn-outline-primary" for="orderInformation.shipTo.company.3">Optional</label>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <button class="btn btn-success" type="submit">Create Capture Context Request</button>
+    </form>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+</body>
+</html>
