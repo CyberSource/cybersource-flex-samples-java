@@ -1,5 +1,7 @@
 # Flex Microform Sample
 
+Live demo of this application is available here: https://flex-mf-springboot-sample.appspot.com/.
+
 Flex Microform is a CyberSource-hosted HTML/JavaScript component that replaces the card number input field on your checkout page 
 and calls the Flex API on your behalf. This simple example integration demonstrates using Flex Microform SDK to embed this
 PCI SAQ-A level component in your form. For more details on this see our Developer Guide at:  

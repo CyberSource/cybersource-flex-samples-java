@@ -1,5 +1,5 @@
 {
-  "targetOrigins": ["http://localhost:8080"],
+  "targetOrigins": ["https://flex-mf-springboot-sample.appspot.com"],
   "allowedCardNetworks": ["VISA", "MASTERCARD", "AMEX"],
   "clientVersion": "v2"
 }

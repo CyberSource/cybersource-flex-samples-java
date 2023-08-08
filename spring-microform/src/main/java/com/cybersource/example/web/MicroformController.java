@@ -50,10 +50,7 @@ public class MicroformController {
     @SneakyThrows
     public String index(final Model model) {
         // Just setting some variables to render the landing page, nothing Microform-specific here
-        try (final Stream<String> lines = Files.lines(captureContextRequestJson.getFile().toPath())) {
-            final long lineCount = lines.count();
-            model.addAttribute("requestLineCount", lineCount);
-        }
+        model.addAttribute("requestLineCount", new String(captureContextRequestJson.getInputStream().readAllBytes(), "UTF-8"));
         model.addAttribute("requestJson", IOUtils.toString(captureContextRequestJson.getInputStream(), UTF_8));
         model.addAttribute("bootstrapVersion", BOOTSTRAP_VERSION);
         model.addAttribute("captureContextRequest", new GenerateCaptureContextRequest());
