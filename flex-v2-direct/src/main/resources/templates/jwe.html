@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <title>Unified Payments Demo no. 1</title>
+</head>
+
+<body>
+<div class="container">
+    <div class="py-5 text-center">
+        <h2>Encrypted Payload</h2>
+        <p class="lead">
+            This JSON Web Token (JWE - encrypted) needs to be send to /flex/v2/tokens. The payload below is AES256GCM
+            encrypted. The content key is encrypted using RSA OAEP. Initialization Vector and authentication tag are provided too.
+        </p>
+    </div>
+
+    <form action="/forms/tokenize" method="post">
+        <h4>Encrypted Payload</h4>
+        <input type="hidden" name="capture-context" value="{captureContext}" />
+        <textarea class="form-control" name="encrypted-payload" rows="20">{jwe}</textarea>
+        <div>
+            <p>The encryption <a href="https://github.com/MechanisedOrigin/flex-v2-java-direct-use-sample/blob/main/src/main/java/com/cybersource/samples/handlers/EncryptDataFormHandler.java" target="_blank">code</a> sample can be found on our GitHub.</p>
+        </div>
+        <button class="btn btn-success" type="submit" id="tokenizeButton">Tokenize server side</button>
+        <a class="btn btn-primary" href="/">Home</a>
+    </form>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+</body>
+</html>

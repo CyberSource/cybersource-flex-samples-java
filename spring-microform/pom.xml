@@ -1,38 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>spring-microform</artifactId>
-    <version>1.0</version>
     <packaging>jar</packaging>
-    
-    <name>Flex Microform Spring Demo</name>
-    <description>A mocked merchant checkout and payment pages using Flex API and Microform tokenization</description>
-    <url>https://github.com/CyberSource/cybersource-flex-samples/java/jsp-microform</url>
     <parent>
         <groupId>com.cybersource.examples.flex</groupId>
         <artifactId>cybersource-flex-samples</artifactId>
         <version>1.0</version>
     </parent>
 
+    <name>Flex Microform Spring Demo</name>
+    <description>A mocked merchant checkout and payment pages using Flex API and Microform tokenization</description>
+    <url>https://github.com/CyberSource/cybersource-flex-samples/java/jsp-microform</url>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
     </properties>
-    
+
+    <build>
+        <plugins>
+            <!-- https://docs.spring.io/spring-boot/docs/2.7.13/maven-plugin/reference/htmlsingle -->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>3.1.2</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <!-- Plugin needed to deploy to Google Cloud -->
+            <plugin>
+                <groupId>com.google.cloud.tools</groupId>
+                <artifactId>appengine-maven-plugin</artifactId>
+                <version>2.4.4</version>
+                <configuration>
+                    <projectId>flex-mf-springboot-sample</projectId>
+                    <version>3</version>
+<!--                    <artifact>${project.build.directory}/xxxx.jar</artifact>-->
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>2.7.13</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
-            <version>3.0.4</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
-            <version>2.7.5</version>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -43,7 +79,6 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-            <version>2.7.8</version>
             <exclusions>
                 <exclusion>
                     <groupId>org.yaml</groupId>

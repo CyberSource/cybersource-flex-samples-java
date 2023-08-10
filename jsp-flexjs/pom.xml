@@ -1,27 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>jsp-flexjs</artifactId>
-    <version>1.0</version> <!-- This example relates to Flex-API BETA v1 -->
     <packaging>war</packaging>
-    
-    <name>Flex JS Demo</name>
-    <description>A mocked merchant checkout and payment page using Flex JS tokenization</description>
-    <url>https://github.com/CyberSource/cybersource-flex-samples/java/jsp-flexjs</url>
-
     <parent>
         <groupId>com.cybersource.examples.flex</groupId>
         <artifactId>cybersource-flex-samples</artifactId>
         <version>1.0</version>
     </parent>
 
+    <name>Flex JS Demo</name>
+    <description>A mocked merchant checkout and payment page using Flex JS tokenization</description>
+    <url>https://github.com/CyberSource/cybersource-flex-samples/java/jsp-flexjs</url>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
     </properties>
 
     <build>
@@ -32,8 +28,8 @@
                 <version>3.2.0</version>
             </plugin>
         </plugins>
-    </build>    
-    
+    </build>
+
     <dependencies>
         <dependency>
             <groupId>javax.servlet</groupId>
@@ -47,7 +43,7 @@
             <version>2.3.1</version>
             <scope>provided</scope>
         </dependency>
-        
+
         <dependency>
             <groupId>com.cybersource</groupId>
             <artifactId>flex-server-sdk</artifactId>
