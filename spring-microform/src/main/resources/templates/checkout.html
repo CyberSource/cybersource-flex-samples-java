@@ -60,11 +60,14 @@
                 <div class="form-group col-md-6">
                     <label for="expYear">Expiry year</label>
                     <select id="expYear" class="form-control">
-                        <option>2023</option>
-                        <option>2024</option>
                         <option>2025</option>
                         <option>2026</option>
                         <option>2027</option>
+                        <option>2028</option>
+                        <option>2029</option>
+                        <option>2030</option>
+                        <option>2031</option>
+                        <option>2032</option>
                     </select>
                 </div>
             </div>
@@ -107,7 +110,7 @@
 
     // setup
     var flex = new Flex(captureContext);
-    var microform = flex.microform({ styles: myStyles });
+    var microform = flex.microform("card", { styles: myStyles });
     var number = microform.createField('number', { placeholder: 'Enter card number' });
     var securityCode = microform.createField('securityCode', { placeholder: '•••' });
 
