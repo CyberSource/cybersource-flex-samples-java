@@ -1,5 +1,5 @@
 {
   "targetOrigins": ["http://localhost:8080"],
-  "allowedCardNetworks": ["VISA", "MASTERCARD", "AMEX"],
+  "allowedCardNetworks": ["VISA","MASTERCARD", "AMEX", "MAESTRO", "DISCOVER", "DINERSCLUB", "JCB", "CUP", "CARTESBANCAIRES"],
   "clientVersion": "v2"
 }
